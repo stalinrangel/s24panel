@@ -1,0 +1,134 @@
+<div class="row">
+  <div class="col-lg-6" style="display:block; margin:auto" *ngIf="!loading">
+  
+    <nb-card style="height: 1300px;">
+      <nb-card-header>Planes  <br>
+        <div class="form-group row">
+          <div class="col-md-8" *ngIf="ver_plan">
+          </div>
+          <div class="col-md-4" *ngIf="ver_plan">
+            <button type="button" class="btn btn-success" (click)="agregar_plan(item)" [disabled]="mouvers_user_tipo =='6'">Agregar Plan</button>
+           </div>
+        </div>
+       
+      </nb-card-header>
+      <nb-card-body>
+        <div class="card-body ">
+              
+              <div class="form-group row">
+                <div class="col-md-12" *ngIf="ver_plan">
+                  <div  *ngFor="let item of planes">
+                      <div class="row" *ngIf="item.tipo_plan!='Opciones'">
+                        <div class="col-md-10">
+                          <p style="border-radius: 1px">{{item.tipo_plan}}</p>
+                        </div>
+                        <div class="col-md-1">
+                          <button type="button" class="btn btn-sm btn-success btn-icon btn-sm btn-table" (click)="ver(item)"><i class="fa fa-eye"></i></button>
+                        </div>
+                        <div class="col-md-1">
+                          <button type="button" class="btn btn-danger btn-icon btn-sm btn-table" title="Eliminar" (click)="eliminar_plan2(item)">
+                            <i class="nb-trash"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-12" *ngIf="!ver_plan">
+                  <button  class="btn btn-tn btn-secondary" (click)="atras()"><i class="fa fa-arrow-left"></i> Atrás</button><br><br>
+
+                  <strong>Nombre del plan: </strong><br>
+                  <input class="form-control" [(ngModel)]="plan.tipo_plan" style="width: 100%"><br>
+                  <strong>Precio del plan: </strong><br>
+                  <input class="form-control" [(ngModel)]="plan.costo" style="width: 100%"><br>
+                  <strong>Precio de promoción: </strong><br>
+                  <input class="form-control" [(ngModel)]="plan.descuento" style="width: 100%"><br>
+                  <strong>Recomendado: </strong>
+                  <nb-checkbox [value]="plan.recomendado === 1"  (change)="cambiarEstado2(plan.recomendado)"></nb-checkbox>
+                  <br><hr><br>
+                  <div  *ngFor="let item of plan.descripcion; index as i">
+                    <div class="row">
+                      <div class="col-md-10">
+                          <input class="form-control" [(ngModel)]="item.descripcion" style="width: 100%"><br>
+                      </div>
+                    
+                      <div class="col-md-2">
+                          <button type="button" class="btn btn-danger btn-icon btn-sm btn-table" title="Eliminar" (click)="aEliminar2(item,i)">
+                            <i class="nb-trash"></i>
+                          </button>
+                      </div>
+                    </div>
+                  </div>
+                  <button  class="btn btn-success" (click)="editar_plan()" style="text-align: center" *ngIf="agregar_plan_check"> Editar plan</button>
+                  <button  class="btn btn-success" (click)="agregar_plan2()" style="text-align: center" *ngIf="!agregar_plan_check"> Agregar plan</button> 
+                </div>
+              </div>
+              
+            </div>
+            <br>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-lg-6" style="display:block; margin:auto;" *ngIf="!loading">
+  
+    <nb-card style="height: 1300px;">
+      <nb-card-header>Opciones del plan</nb-card-header>
+      <nb-card-body>
+        <div class="card-body ">
+              
+              <div class="form-group row">
+
+                <div class="col-md-12">
+                  <div  *ngFor="let item of opciones.descripcion; index as i">
+                      <div class="row">
+                        <div class="col-md-10">
+                          <p style="border-radius: 1px">{{item.descripcion}}</p>
+                        </div>
+                        <div class="col-md-1">
+                          <button type="button" class="btn btn-sm btn-success btn-icon btn-sm btn-table" (click)="add_plan(item)" *ngIf="!ver_plan"><i class="nb-plus"></i></button>
+                        </div>
+                        <div class="col-md-1">
+                          <button type="button" class="btn btn-danger btn-icon btn-sm btn-table" title="Eliminar" (click)="aEliminar(item,i)" *ngIf="ver_plan">
+                            <i class="nb-trash"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="card-footer">
+              <strong>Agregar una descripcion: </strong><br>
+              <input class="form-control" [(ngModel)]="inputName" style="width: 100%"><br>
+              <button type="submit" class="btn btn-success" (click)="crear_descripcion()" [disabled]="mouvers_user_tipo =='6'" > Crear observación</button>
+            </div>
+        <br>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<ng-template #modal1 let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Eliminar Notificación: </h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>¿Realmente desea eliminar esta notificación?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')" [disabled]="mouvers_user_tipo==7">Cancelar</button>
+    <button type="button" class="btn btn-danger" (click)="c('Close click'); eliminar()" [disabled]="mouvers_user_tipo==7">Eliminar</button>
+  </div>
+</ng-template>
+
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="my-container">
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '4px' }"></ngx-loading>
+</div>
+
+

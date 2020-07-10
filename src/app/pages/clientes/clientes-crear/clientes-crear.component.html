@@ -1,0 +1,80 @@
+<nb-card *ngIf="mostrar">
+  <nb-card-header>
+    <div class="row show-grid">
+          <div class="col-6">
+            <div>Crear de Usuarios</div>
+          </div>
+          <div class="col-6">
+        
+          </div>
+        </div>
+  </nb-card-header>
+
+  <nb-card-body>
+
+    <div class="row" style="display:block; margin:auto">
+      <form [formGroup]="myFormAgregar" novalidate>
+          <div class="form-group">
+            <label for="exampleInputNombre">Nombre</label>
+            <input type="text" class="form-control" id="exampleInputNombre" placeholder="Nombre" formControlName="nombre">
+            <div *ngIf="myFormAgregar.get('nombre').errors && myFormAgregar.get('nombre').dirty">
+              <p *ngIf="myFormAgregar.get('nombre').hasError('required')">Nombre es requerido</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email" formControlName="email">
+            <div *ngIf="myFormAgregar.get('email').errors && myFormAgregar.get('email').dirty">
+              <p *ngIf="myFormAgregar.get('email').hasError('required')">Email es requerido</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" formControlName="password">
+            <div *ngIf="myFormAgregar.get('password').errors && myFormAgregar.get('password').dirty">
+              <p *ngIf="myFormAgregar.get('password').hasError('required')">Password es requerido</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword2">Confirmar Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" formControlName="password2">
+            <div *ngIf="myFormAgregar.get('password2').errors && myFormAgregar.get('password2').dirty">
+              <p *ngIf="myFormAgregar.get('password2').hasError('required')">Password es requerido</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputTelefono">Teléfono</label>
+            <input type="text" class="form-control" id="exampleInputTelefono" placeholder="Telefono" formControlName="telefono">
+            <div *ngIf="myFormAgregar.get('telefono').errors && myFormAgregar.get('telefono').dirty">
+              <p *ngIf="myFormAgregar.get('telefono').hasError('required')">Teléfono es requerido</p>
+            </div>
+          </div>
+
+          <div class="form-group" >
+              <label for="exampleInputTelefono">Imagen</label><br>
+              <img src="{{imgUpload}}" alt="" style="width: 250px; height: 250px; border-radius: 20px;" >
+                <input [hidden]="clear" type="file" name="imagen" id="imagen" (change)="onFileChange($event)" #fileInput accept="image/*">
+                  <div *ngIf="clear">
+                    <button type="button" class="btn btn-danger btn-tn" (click)="clearFile()">Eliminar</button>
+                  </div>
+                  <p [hidden]="clear" style="color: #c71717"><b>Sugerencia:</b> La dimensión de la imagen no debe ser mayor a 870x370 px.</p>
+            </div>
+          <br>
+          <button type="submit" class="btn btn-info" (click)="crear()" [disabled]="myFormAgregar.invalid || mouvers_user_tipo!=7">Crear Usuarios</button>
+        </form>
+    </div>
+    
+      
+  </nb-card-body>
+  <nb-card-footer>
+     
+  </nb-card-footer>
+</nb-card>
+
+
+
+<toaster-container [toasterconfig]="config"></toaster-container>
+
+<div class="my-container">
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '4px' }"></ngx-loading>
+</div>
