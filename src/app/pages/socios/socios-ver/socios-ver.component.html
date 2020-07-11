@@ -43,9 +43,9 @@
             <td style="text-align: center; vertical-align:middle;">{{item.tipo2}}</td>
             <td style="text-align: center; vertical-align:middle;">{{item.usuario.zonas.nombre}}</td>
             <td style="text-align: center; vertical-align:middle;">{{item.usuario.zonas.ciudad.nombre}}</td>
-            <td style="text-align: center;">{{item.encurso}}</td>
-            <td style="text-align: center;">{{item.enfinalizados}}</td>
-            <td style="text-align: center;">{{item.created_at}}</td>
+            <td style="text-align: center; vertical-align:middle;">{{item.encurso}}</td>
+            <td style="text-align: center; vertical-align:middle;">{{item.enfinalizados}}</td>
+            <td style="text-align: center; vertical-align:middle;">{{item.usuario.fecha}}</td>
             <!--td style=" vertical-align:middle;">
               <div class="estado" style="display:block; margin:auto">
                 <label class="theme-switch">
@@ -58,7 +58,7 @@
                 </label>
               </div>
             </td-->
-            <td class="text-center">
+            <td style="text-align: center; vertical-align:middle;">
               <div>
                 <ngb-rating [(rate)]="item.promedio" max=5>
                   <ng-template let-fill="fill">
@@ -71,7 +71,7 @@
                 <!--span class="current-rate">{{item.promedio}}</span-->
               </div>
             </td>
-            <td style=" vertical-align:middle;">
+            <td style=" vertical-align:middle; vertical-align:middle;">
               <!--div class="estado" style="display:block; margin:auto">
                 <label class="theme-switch">
                   <span class="light">OFF</span>

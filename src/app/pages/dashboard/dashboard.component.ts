@@ -47,6 +47,8 @@ export class DashboardComponent implements OnInit {
 	data5 : any;
 	data6 : any;
 	data7 : any;
+	data8 : any;
+	data9 : any;
 
 	themeSubscription: any;
 
@@ -129,6 +131,8 @@ export class DashboardComponent implements OnInit {
 	count_5: any;
 	count_a: any;
 	count_i: any;
+	count_6: any;
+	count_7: any;
 
 	public mouvers_user_tipo = localStorage.getItem('mouvers_user_tipo');
 	
@@ -146,6 +150,8 @@ export class DashboardComponent implements OnInit {
 		this.count_5 = 'Consultando.....';
 		this.count_a = 'Consultando.....';
 		this.count_i = 'Consultando.....';
+		this.count_6 = 'Consultando.....';
+		this.count_7 = 'Consultando.....';
 
 		var fecha = new Date();
 		//var fecha = Date.now();
@@ -259,6 +265,8 @@ export class DashboardComponent implements OnInit {
 	           this.count_5 = this.data.pedidos_cancelados;
 	           this.count_a = this.data.repartidores_activos;
 	           this.count_i = this.data.repartidores_inactivos;
+	           this.count_6 = this.data.nuevos_repartidores;
+	           this.count_7 = this.data.nuevos_clientes;
 	           if (!this.data.dinero_recaudado) {
 	           	//this.count_4 = 0;
 	           }else{

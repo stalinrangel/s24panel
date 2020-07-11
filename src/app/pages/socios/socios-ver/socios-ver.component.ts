@@ -209,13 +209,35 @@ export class SociosVerComponent implements OnInit{
            this.data=data;
            this.productList = this.data.repartidores;
 
+           //Cambiar el formato de la fecha y hora
+           var dia : any;
+           var mes : any;
+           var anio : any;
+           var fecha : any;
+           var hora : any;
+           var minutos : any;
+           var segundos : any;
+
            for (var i = 0; i < this.productList.length; ++i) {
-             console.log(this.productList[i].usuario.registro);
+             //console.log(this.productList[i].usuario.registro);
              if(this.productList[i].usuario.registro.tipo==2) {
                this.productList[i].tipo2='Empresa';
              }else if(this.productList[i].usuario.registro.tipo==1) {
                this.productList[i].tipo2='Individuo';
              }
+
+             fecha = new Date(this.productList[i].usuario.created_at);
+             dia = fecha.getDate();
+             mes = fecha.getMonth() + 1;
+             anio = fecha.getFullYear();
+
+             hora = fecha.getHours();
+             minutos = fecha.getMinutes();
+             segundos = fecha.getSeconds();
+
+             this.productList[i].usuario.fecha = dia+'/'+mes+'/'+anio;
+             //this.productList[i].usuario.horaAux = hora+':'+minutos+':'+segundos;
+
            }
            
            this.productList = this.productList.sort((a, b) => b.enfinalizados - a.enfinalizados);
@@ -1600,6 +1622,8 @@ export class SociosVerComponent implements OnInit{
               if (this.productList[i].usuario.nombre.toUpperCase().indexOf(this.inputName.toUpperCase())>=0) {
                  this.filteredItems.push(this.productList[i]);
               }else if (this.productList[i].usuario.email.toUpperCase().indexOf(this.inputName.toUpperCase())>=0) {
+                 this.filteredItems.push(this.productList[i]);
+              }else if (this.productList[i].usuario.fecha.toUpperCase().indexOf(this.inputName.toUpperCase())>=0) {
                  this.filteredItems.push(this.productList[i]);
               }
             }

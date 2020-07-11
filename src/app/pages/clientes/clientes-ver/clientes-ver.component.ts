@@ -104,6 +104,29 @@ export class ClientesVerComponent implements OnInit{
            console.log(data);
            this.data=data;
 
+           //Cambiar el formato de la fecha y hora
+           var dia : any;
+           var mes : any;
+           var anio : any;
+           var fecha : any;
+           var hora : any;
+           var minutos : any;
+           var segundos : any;
+
+           for (var i = 0; i < this.data.usuarios.length; ++i) {
+             fecha = new Date(this.data.usuarios[i].created_at);
+             dia = fecha.getDate();
+             mes = fecha.getMonth() + 1;
+             anio = fecha.getFullYear();
+
+             hora = fecha.getHours();
+             minutos = fecha.getMinutes();
+             segundos = fecha.getSeconds();
+
+             this.data.usuarios[i].fecha = dia+'/'+mes+'/'+anio;
+             //this.data.usuarios[i].horaAux = hora+':'+minutos+':'+segundos;
+           }
+
            this.productList = this.data.usuarios;
            this.productList = this.productList.sort((a, b) => b.encurso - a.encurso);
            this.filteredItems = this.productList;
@@ -376,6 +399,8 @@ export class ClientesVerComponent implements OnInit{
               }else if (this.productList[i].estado.toUpperCase().indexOf(this.inputName.toUpperCase())>=0) {
                  this.filteredItems.push(this.productList[i]);
               }else if (this.productList[i].telefono.indexOf(this.inputName)>=0) {
+                 this.filteredItems.push(this.productList[i]);
+              }else if (this.productList[i].fecha.toUpperCase().indexOf(this.inputName.toUpperCase())>=0) {
                  this.filteredItems.push(this.productList[i]);
               }
             }
