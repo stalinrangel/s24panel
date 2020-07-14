@@ -1,123 +1,227 @@
-<nb-card *ngIf="!editando && mostrar">
-  <nb-card-header>
-    <div class="row show-grid">
-          <div class="col-6">
-            <div>Lista de Socios</div>
-          </div>
-          <div class="col-6">
-            <div>
-              <div style="text-align: right;">
-               <strong>Buscar: </strong>
-               <input  type="text"  id="inputName" [(ngModel)]="inputName" (ngModelChange)="FilterByName()"/>
-              </div>
-            </div>
-          </div>
-        </div>
-  </nb-card-header>
+<div class="row" *ngIf="!editando && mostrar">
+  <div class="col-md-12 col-lg-12">
+    <!-- <nb-card size="large"> -->
+    <nb-card >
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Sin registro">
 
-  <nb-card-body>
+          <nb-card >
+            <nb-card-header>
+              <div class="row show-grid">
+                    <div class="col-6">
+                      <div>Lista de Socios</div>
+                    </div>
+                    <div class="col-6">
+                      <div>
+                        <div style="text-align: right;">
+                         <strong>Buscar: </strong>
+                         <input  type="text"  id="inputNameA" [(ngModel)]="inputNameA" (ngModelChange)="FilterByNameA()"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </nb-card-header>
 
-    <table class="table">
-      <thead>
-         <th style="text-align: center;">Imagen</th>
-         <th style="text-align: center;">Nombre</th>
-         <th style="text-align: center;">Email</th>
-         <th style="text-align: center;">Teléfono</th>
-         <th style="text-align: center;">Tipo</th>
-         <th style="text-align: center;">Zona</th>
-         <th style="text-align: center;">Ciudad</th>
-         <th style="text-align: center;">En Curso</th>
-         <th style="text-align: center;">Finalizados</th>
-         <th style="text-align: center;">Ingreso</th>
-         <th style="text-align: center;">Puntaje</th>
-         <th style="text-align: center;">Estado</th>
-         <th style="text-align: center;">Acciones</th>
-      </thead>
-      <tbody>
-         <tr *ngFor="let item of items" >
-            <td style="text-align: center; vertical-align:middle;"><img src = "{{item.usuario.imagen}}" alt="" class="img-table" height="50px" width="80px" style="border-radius: 10px;"></td>
-            <td style="text-align: center; vertical-align:middle;">{{item.usuario.nombre}}</td>
-            <td style="text-align: center; vertical-align:middle;">
-            {{item.usuario.email}}</td>
-            <td style="text-align: center; vertical-align:middle;">{{item.usuario.telefono}}</td>
-            <td style="text-align: center; vertical-align:middle;">{{item.tipo2}}</td>
-            <td style="text-align: center; vertical-align:middle;">{{item.usuario.zonas.nombre}}</td>
-            <td style="text-align: center; vertical-align:middle;">{{item.usuario.zonas.ciudad.nombre}}</td>
-            <td style="text-align: center; vertical-align:middle;">{{item.encurso}}</td>
-            <td style="text-align: center; vertical-align:middle;">{{item.enfinalizados}}</td>
-            <td style="text-align: center; vertical-align:middle;">{{item.usuario.fecha}}</td>
-            <!--td style=" vertical-align:middle;">
-              <div class="estado" style="display:block; margin:auto">
-                <label class="theme-switch">
-                  <span class="light">OFF</span>
-                  <div class="switch">
-                    <input type="checkbox" [checked]="item.status === 'ON'" (change)="cambiarStatus(item)" #theme>
-                    <span class="slider"></span>
+            <nb-card-body>
+
+              <table class="table">
+                <thead>
+                   <th style="text-align: center;">Imagen</th>
+                   <th style="text-align: center;">Nombre</th>
+                   <th style="text-align: center;">Email</th>
+                   <th style="text-align: center;">Teléfono</th>
+                   <th style="text-align: center;">Tipo</th>
+                   <th style="text-align: center;">Zona</th>
+                   <th style="text-align: center;">Ciudad</th>
+                   <th style="text-align: center;">Ingreso</th>
+                   <th style="text-align: center;">Estado</th>
+                   <th style="text-align: center;">Acciones</th>
+                </thead>
+                <tbody>
+                   <tr *ngFor="let item of itemsA" >
+                      <td style="text-align: center; vertical-align:middle;"><img src = "{{item.usuario.imagen}}" alt="" class="img-table" height="50px" width="80px" style="border-radius: 10px;"></td>
+                      <td style="text-align: center; vertical-align:middle;">{{item.usuario.nombre}}</td>
+                      <td style="text-align: center; vertical-align:middle;">
+                      {{item.usuario.email}}</td>
+                      <td style="text-align: center; vertical-align:middle;">{{item.usuario.telefono}}</td>
+                      <td style="text-align: center; vertical-align:middle;">{{item.tipo2}}</td>
+                      <td style="text-align: center; vertical-align:middle;">{{item.usuario.zonas.nombre}}</td>
+                      <td style="text-align: center; vertical-align:middle;">{{item.usuario.zonas.ciudad.nombre}}</td>
+                      <td style="text-align: center; vertical-align:middle;">{{item.usuario.fecha}}</td>
+                      <!--td style=" vertical-align:middle;">
+                        <div class="estado" style="display:block; margin:auto">
+                          <label class="theme-switch">
+                            <span class="light">OFF</span>
+                            <div class="switch">
+                              <input type="checkbox" [checked]="item.status === 'ON'" (change)="cambiarStatus(item)" #theme>
+                              <span class="slider"></span>
+                            </div>
+                            <span class="cosmic">ON</span>
+                          </label>
+                        </div>
+                      </td-->
+                      <td style=" vertical-align:middle; vertical-align:middle;">
+                        <!--div class="estado" style="display:block; margin:auto">
+                          <label class="theme-switch">
+                            <span class="light">OFF</span>
+                            <div class="switch">
+                              <input type="checkbox" [checked]="item.estado === 'ON'" (change)="cambiarEstado(item)" #theme>
+                              <span class="slider"></span>
+                            </div>
+                            <span class="cosmic">ON</span>
+                          </label>
+                        </div-->
+                        <nb-checkbox [value]="item.estado === 'ON'"  (change)="cambiarEstado(item)"></nb-checkbox>
+                      </td> 
+                      
+                      <td style="text-align: center; vertical-align:middle;">
+                        <!-- <button type="button" class="btn btn-primary btn-icon btn-sm btn-table" title="Editar" (click)="aEditar(item)">
+                          <i class="nb-edit"></i>
+                        </button> -->
+                        <!-- <button type="button" class="btn btn-danger btn-icon btn-sm btn-table" title="Eliminar" (click)="open(modal1); aEliminar(item)">
+                          <i class="nb-trash"></i>
+                        </button> -->
+                        <button type="button" class="btn btn-primary btn-icon btn-sm btn-table" title="Chat" (click)="chat(item)">
+                          <i class="nb-email"></i>
+                        </button>
+                      </td>
+                   </tr>
+                </tbody>
+              </table>
+                
+            </nb-card-body>
+            <nb-card-footer>
+              <div class="btn-toolbar" role="toolbar" style="margin: 0;">
+                <div class="btn-group">
+                   <label style="margin-top:10px">Página {{currentIndexA}}/{{pageNumberA}} </label>
+                </div>
+                <div class="btn-group pull-right">
+                   <ul class="pagination" >
+                      <li class="page-item" [ngClass]="{'disabled': (currentIndexA == 1 || pageNumberA == 0)}" ><a class="page-link"  (click)="prevPageA()" >Atrás</a></li>
+                         <li class="page-item" *ngFor="let page of pagesIndexA"  [ngClass]="{'active': (currentIndexA == page)}">
+                            <a class="page-link" (click)="setPageA(page)"  >{{page}} </a>
+                         </li>
+                      <li class="page-item" [ngClass]="{'disabled': (currentIndexA == pageNumberA || pageNumberA == 0)}" ><a class="page-link"   (click)="nextPageA()" >Siguiente</a></li>
+                   </ul>
+                </div>
+              </div>  
+            </nb-card-footer>
+          </nb-card>          
+
+        </nb-tab>
+        <nb-tab tabTitle="Con registro incompleto">
+          
+          <nb-card >
+            <nb-card-header>
+              <div class="row show-grid">
+                    <div class="col-6">
+                      <div>Lista de Socios</div>
+                    </div>
+                    <div class="col-6">
+                      <div>
+                        <div style="text-align: right;">
+                         <strong>Buscar: </strong>
+                         <input  type="text"  id="inputName" [(ngModel)]="inputName" (ngModelChange)="FilterByName()"/>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <span class="cosmic">ON</span>
-                </label>
-              </div>
-            </td-->
-            <td style="text-align: center; vertical-align:middle;">
-              <div>
-                <ngb-rating [(rate)]="item.promedio" max=5>
-                  <ng-template let-fill="fill">
-                    <span class="star fill" [class.filled]="fill === 100">
-                      <i class="ion-android-star" *ngIf="fill === 100"></i>
-                      <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
-                    </span>
-                  </ng-template>
-                </ngb-rating>
-                <!--span class="current-rate">{{item.promedio}}</span-->
-              </div>
-            </td>
-            <td style=" vertical-align:middle; vertical-align:middle;">
-              <!--div class="estado" style="display:block; margin:auto">
-                <label class="theme-switch">
-                  <span class="light">OFF</span>
-                  <div class="switch">
-                    <input type="checkbox" [checked]="item.estado === 'ON'" (change)="cambiarEstado(item)" #theme>
-                    <span class="slider"></span>
-                  </div>
-                  <span class="cosmic">ON</span>
-                </label>
-              </div-->
-              <nb-checkbox [value]="item.estado === 'ON'"  (change)="cambiarEstado(item)"></nb-checkbox>
-            </td> 
-            
-            <td style="text-align: center; vertical-align:middle;">
-              <button type="button" class="btn btn-primary btn-icon btn-sm btn-table" title="Editar" (click)="aEditar(item)">
-                <i class="nb-edit"></i>
-              </button>
-              <button type="button" class="btn btn-danger btn-icon btn-sm btn-table" title="Eliminar" (click)="open(modal1); aEliminar(item)">
-                <i class="nb-trash"></i>
-              </button>
-              <button type="button" class="btn btn-primary btn-icon btn-sm btn-table" title="Chat" (click)="chat(item)">
-                <i class="nb-email"></i>
-              </button>
-            </td>
-         </tr>
-      </tbody>
-    </table>
-      
-  </nb-card-body>
-  <nb-card-footer>
-    <div class="btn-toolbar" role="toolbar" style="margin: 0;">
-      <div class="btn-group">
-         <label style="margin-top:10px">Página {{currentIndex}}/{{pageNumber}} </label>
-      </div>
-      <div class="btn-group pull-right">
-         <ul class="pagination" >
-            <li class="page-item" [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}" ><a class="page-link"  (click)="prevPage()" >Atrás</a></li>
-               <li class="page-item" *ngFor="let page of pagesIndex"  [ngClass]="{'active': (currentIndex == page)}">
-                  <a class="page-link" (click)="setPage(page)"  >{{page}} </a>
-               </li>
-            <li class="page-item" [ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}" ><a class="page-link"   (click)="nextPage()" >Siguiente</a></li>
-         </ul>
-      </div>
-    </div>  
-  </nb-card-footer>
-</nb-card>
+            </nb-card-header>
+
+            <nb-card-body>
+
+              <table class="table">
+                <thead>
+                   <th style="text-align: center;">Imagen</th>
+                   <th style="text-align: center;">Nombre</th>
+                   <th style="text-align: center;">Email</th>
+                   <th style="text-align: center;">Teléfono</th>
+                   <th style="text-align: center;">Tipo</th>
+                   <th style="text-align: center;">Zona</th>
+                   <th style="text-align: center;">Ciudad</th>
+                   <th style="text-align: center;">Ingreso</th>
+                   <th style="text-align: center;">Estado</th>
+                   <th style="text-align: center;">Acciones</th>
+                </thead>
+                <tbody>
+                   <tr *ngFor="let item of items" >
+                      <td style="text-align: center; vertical-align:middle;"><img src = "{{item.usuario.imagen}}" alt="" class="img-table" height="50px" width="80px" style="border-radius: 10px;"></td>
+                      <td style="text-align: center; vertical-align:middle;">{{item.usuario.nombre}}</td>
+                      <td style="text-align: center; vertical-align:middle;">
+                      {{item.usuario.email}}</td>
+                      <td style="text-align: center; vertical-align:middle;">{{item.usuario.telefono}}</td>
+                      <td style="text-align: center; vertical-align:middle;">{{item.tipo2}}</td>
+                      <td style="text-align: center; vertical-align:middle;">{{item.usuario.zonas.nombre}}</td>
+                      <td style="text-align: center; vertical-align:middle;">{{item.usuario.zonas.ciudad.nombre}}</td>
+                      <td style="text-align: center; vertical-align:middle;">{{item.usuario.fecha}}</td>
+                      <!--td style=" vertical-align:middle;">
+                        <div class="estado" style="display:block; margin:auto">
+                          <label class="theme-switch">
+                            <span class="light">OFF</span>
+                            <div class="switch">
+                              <input type="checkbox" [checked]="item.status === 'ON'" (change)="cambiarStatus(item)" #theme>
+                              <span class="slider"></span>
+                            </div>
+                            <span class="cosmic">ON</span>
+                          </label>
+                        </div>
+                      </td-->
+                      <td style=" vertical-align:middle; vertical-align:middle;">
+                        <!--div class="estado" style="display:block; margin:auto">
+                          <label class="theme-switch">
+                            <span class="light">OFF</span>
+                            <div class="switch">
+                              <input type="checkbox" [checked]="item.estado === 'ON'" (change)="cambiarEstado(item)" #theme>
+                              <span class="slider"></span>
+                            </div>
+                            <span class="cosmic">ON</span>
+                          </label>
+                        </div-->
+                        <nb-checkbox [value]="item.estado === 'ON'"  (change)="cambiarEstado(item)"></nb-checkbox>
+                      </td> 
+                      
+                      <td style="text-align: center; vertical-align:middle;">
+                        <button type="button" class="btn btn-primary btn-icon btn-sm btn-table" title="Editar" (click)="aEditar(item)">
+                          <i class="nb-edit"></i>
+                        </button>
+                        <!-- <button type="button" class="btn btn-danger btn-icon btn-sm btn-table" title="Eliminar" (click)="open(modal1); aEliminar(item)">
+                          <i class="nb-trash"></i>
+                        </button> -->
+                        <button type="button" class="btn btn-primary btn-icon btn-sm btn-table" title="Chat" (click)="chat(item)">
+                          <i class="nb-email"></i>
+                        </button>
+                      </td>
+                   </tr>
+                </tbody>
+              </table>
+                
+            </nb-card-body>
+            <nb-card-footer>
+              <div class="btn-toolbar" role="toolbar" style="margin: 0;">
+                <div class="btn-group">
+                   <label style="margin-top:10px">Página {{currentIndex}}/{{pageNumber}} </label>
+                </div>
+                <div class="btn-group pull-right">
+                   <ul class="pagination" >
+                      <li class="page-item" [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}" ><a class="page-link"  (click)="prevPage()" >Atrás</a></li>
+                         <li class="page-item" *ngFor="let page of pagesIndex"  [ngClass]="{'active': (currentIndex == page)}">
+                            <a class="page-link" (click)="setPage(page)"  >{{page}} </a>
+                         </li>
+                      <li class="page-item" [ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}" ><a class="page-link"   (click)="nextPage()" >Siguiente</a></li>
+                   </ul>
+                </div>
+              </div>  
+            </nb-card-footer>
+          </nb-card>          
+
+        </nb-tab>
+
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+
+
 
 <div class="row" *ngIf="editando">
   <div class="col-lg-12" style="display:block; margin:auto">
@@ -126,15 +230,73 @@
         <button class="btn btn-secondary" (click)="atras()">Atras</button><br>
       </nb-card-header>
       <nb-card-body>
+
+        <h5 style="font-size: 1rem;" class="grid-h">Estado del registro</h5>
+        <br>
+        <div class="row">
+          <div class="col-lg-4">
+
+            <p>Nombre &nbsp;&nbsp; <i class="fa {{ registro_estado.nombre.icon }}"></i></p> 
+            <p>Email &nbsp;&nbsp; <i class="fa {{ registro_estado.email.icon }}"></i></p>
+            <p>Teléfono &nbsp;&nbsp; <i class="fa {{ registro_estado.telefono.icon }}"></i></p> 
+            <p>Foto &nbsp;&nbsp; <i class="fa {{ registro_estado.foto.icon }}"></i></p>
+
+            <p>Documento de identidad &nbsp;&nbsp; <i class="fa {{ registro_estado.cedula.icon }}"></i></p> 
+            <p>Nacionalidad &nbsp;&nbsp; <i class="fa {{ registro_estado.nacionalidad.icon }}"></i></p>
+            <p>Dirección google &nbsp;&nbsp; <i class="fa {{ registro_estado.direccion.icon }}"></i></p>
+            <p>Dirección exacta &nbsp;&nbsp; <i class="fa {{ registro_estado.direccion_exacta.icon }}"></i></p>
+
+            <p>Sexo &nbsp;&nbsp; <i class="fa {{ registro_estado.sexo.icon }}"></i></p>
+            <p>Fecha Nacimiento &nbsp;&nbsp; <i class="fa {{ registro_estado.fecha_nacimiento.icon }}"></i></p> 
+
+          </div>
+          <div class="col-lg-4">
+
+            <p>Formación &nbsp;&nbsp; <i class="fa {{ registro_estado.formacion.icon }}"></i></p>
+
+            <p>Tipo de registro &nbsp;&nbsp; <i class="fa {{ registro_estado.tipo2.icon }}"></i></p> 
+            <p>Ruc &nbsp;&nbsp; <i class="fa {{ registro_estado.ruc.icon }}"></i></p>
+            <p>Email empresa &nbsp;&nbsp; <i class="fa {{ registro_estado.email_empresa.icon }}"></i></p> 
+            <p>Nombre contacto &nbsp;&nbsp; <i class="fa {{ registro_estado.contacto_nombre.icon }}"></i></p> 
+
+            <p>Urgencias &nbsp;&nbsp; <i class="fa {{ registro_estado.urgencias.icon }}"></i></p> 
+            <p>Factura &nbsp;&nbsp; <i class="fa {{ registro_estado.factura.icon }}"></i></p>
+            <p>Cargo contacto &nbsp;&nbsp; <i class="fa {{ registro_estado.contacto_cargo.icon }}"></i></p> 
+            <p>Idoneidad &nbsp;&nbsp; <i class="fa {{ registro_estado.idoneidad.icon }}"></i></p>
+
+            <p>Años experiencia &nbsp;&nbsp; <i class="fa {{ registro_estado.anos_experiencia.icon }}"></i></p>
+
+          </div>
+          <div class="col-lg-4">
+
+            <p>Experiencia &nbsp;&nbsp; <i class="fa {{ registro_estado.experiencia2.icon }}"></i></p>
+            <p>Idiomas &nbsp;&nbsp; <i class="fa {{ registro_estado.idiomas2.icon }}"></i></p>
+
+            <p>Documento de Indentidad &nbsp;&nbsp; <i class="fa {{ registro_estado.pasaporte.icon }}"></i></p> 
+            <p>Logo &nbsp;&nbsp; <i class="fa {{ registro_estado.logo.icon }}"></i></p>
+            <p>Aviso Operaciones &nbsp;&nbsp; <i class="fa {{ registro_estado.operaciones.icon }}"></i></p>
+            <p>Idoneidad &nbsp;&nbsp; <i class="fa {{ registro_estado.idoneidad_file.icon }}"></i></p>
+            <p>Recibo &nbsp;&nbsp; <i class="fa {{ registro_estado.recibo_servicio.icon }}"></i></p>
+
+            <p>Contrato &nbsp;&nbsp; <i class="fa {{ registro_estado.contrato_aux.icon }}"></i></p>
+            
+          </div>
+        </div>
+        
+        <br><br>
+        <hr>
+        <br><br>
+
         <form [formGroup]="myFormEditar" novalidate>
           <div class="row">
           
             <div class="form-group" class="col-3"> 
               <label for="exampleInputNombre">Nombre</label>
-              <input type="text" class="form-control" id="exampleInputNombre" placeholder="Nombre" formControlName="nombre">
+              <input type="text" class="form-control " id="exampleInputNombre" placeholder="Nombre" formControlName="nombre">
               <div *ngIf="myFormEditar.get('nombre').errors && myFormEditar.get('nombre').dirty">
                 <p *ngIf="myFormEditar.get('nombre').hasError('required')">Nombre es requerido</p>
               </div>
+              <small *ngIf="registro_estado.nombre.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
             <div class="form-group" class="col-3">
               <label for="exampleInputEmail">Email</label>
@@ -142,6 +304,7 @@
               <div *ngIf="myFormEditar.get('email').errors && myFormEditar.get('email').dirty">
                 <p *ngIf="myFormEditar.get('email').hasError('required')">Email es requerido</p>
               </div>
+              <small *ngIf="registro_estado.email.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
             <div class="form-group" class="col-3">
               <label for="exampleInputTelefono">Teléfono</label>
@@ -149,9 +312,12 @@
               <div *ngIf="myFormEditar.get('telefono').errors && myFormEditar.get('telefono').dirty">
                 <p *ngIf="myFormEditar.get('telefono').hasError('required')">Teléfono es requerido</p>
               </div>
+              <small *ngIf="registro_estado.telefono.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
             <div class="form-group" class="col-3">
-              <label for="exampleInputTelefono">Foto</label><br>
+              <label for="exampleInputTelefono">Foto </label>
+              <small *ngIf="registro_estado.foto.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
+              <br>
               <img src="{{myFormEditar.value.foto}}" alt="" style="width: 250px; height: 250px; border-radius: 20px;">
                 <input [hidden]="clear" type="file" name="imagen" id="imagen" (change)="onFileChange($event)" #fileInput accept="image/*">
                   <div *ngIf="clear">
@@ -166,36 +332,43 @@
             <div class="form-group" class="col-3">
               <label for="exampleInputTelefono">Documento de identidad</label>
               <input type="text" class="form-control" id="cedula" placeholder="" formControlName="cedula">
+              <small *ngIf="registro_estado.cedula.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
 
             <div class="form-group" class="col-3">
               <label for="exampleInputTelefono">Nacionalidad</label>
               <input type="text" class="form-control" id="nacionalidad" placeholder="" formControlName="nacionalidad">
+              <small *ngIf="registro_estado.nacionalidad.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
 
             <div class="form-group" class="col-6">
               <label for="exampleInputTelefono">Dirección google</label>
               <input type="text" class="form-control" id="direccion" placeholder="" formControlName="direccion">{{myFormEditar.value.lat}}-{{myFormEditar.value.lng}}
+              <small *ngIf="registro_estado.direccion.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
             <div class="form-group" class="col-6">
               <label for="exampleInputTelefono">Dirección exacta</label>
               <input type="text" class="form-control" id="direccion_exacta" placeholder="" formControlName="direccion_exacta">
+              <small *ngIf="registro_estado.direccion_exacta.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
 
           </div>
-
+          <br>
           <div class="row">
             <div class="form-group" class="col-4">
               <label for="exampleInputTelefono">Sexo</label>
               <input type="text" class="form-control" id="sexo" placeholder="" formControlName="sexo">
+              <small *ngIf="registro_estado.sexo.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
             <div class="form-group" class="col-4">
               <label for="exampleInputTelefono">Fecha Nacimiento</label>
               <input type="text" class="form-control" id="fecha_nacimiento" placeholder="" formControlName="fecha_nacimiento">
+              <small *ngIf="registro_estado.fecha_nacimiento.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
             <div class="form-group" class="col-4">
               <label for="exampleInputTelefono">Formación</label>
               <input type="text" class="form-control" id="formacion" placeholder="" formControlName="formacion">
+              <small *ngIf="registro_estado.formacion.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
           </div>
           
@@ -206,54 +379,68 @@
           <div class="row">
             <div class="form-group" class="col-3">
               <label for="exampleInputTelefono">Tipo de registro</label>
-              <input type="text" class="form-control" id="exampleInputTipo" placeholder="Tipo de registro" formControlName="tipo2">
+              <input type="text" class="form-control" id="tipo2" placeholder="Tipo de registro" formControlName="tipo2">
+              <small *ngIf="registro_estado.tipo2.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
 
             <div class="form-group" class="col-3">
               <label for="exampleInputTelefono">Ruc</label>
               <input type="text" class="form-control" id="exampleInputruc" placeholder="ruc" formControlName="ruc">
+              <small *ngIf="registro_estado.ruc.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
 
             <div class="form-group" class="col-3">
               <label for="exampleInputTelefono">Email empresa</label>
               <input type="text" class="form-control" id="exampleInputemail_empresa" placeholder="email" formControlName="email_empresa">
+              <small *ngIf="registro_estado.email_empresa.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
 
             <div class="form-group" class="col-3">
               <label for="exampleInputTelefono">Nombre contacto</label>
               <input type="text" class="form-control" id="exampleInputcontacto_nombre" placeholder="" formControlName="contacto_nombre">
+              <small *ngIf="registro_estado.contacto_nombre.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>  
           </div>
+          <br>
           
           <div class="row">
             <div class="form-group" class="col-6">
               <label for="exampleInputTelefono">Urgencias</label>
-              <input type="text" class="form-control" id="exampleInputTipo" placeholder="" formControlName="urgencias">
+              <input type="text" class="form-control" id="urgencias" placeholder="" formControlName="urgencias">
+              <small *ngIf="registro_estado.urgencias.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
 
             <div class="form-group" class="col-6">
               <label for="exampleInputTelefono">Factura</label>
               <input type="text" class="form-control" id="factura" placeholder="factura" formControlName="factura">
+              <small *ngIf="registro_estado.factura.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
-
+          </div>
+          <br>  
+          <div class="row">
             <div class="form-group" class="col-6">
               <label for="exampleInputTelefono">Cargo contacto</label>
               <input type="text" class="form-control" id="contacto_cargo" placeholder="" formControlName="contacto_cargo">
+              <small *ngIf="registro_estado.contacto_cargo.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
 
             <div class="form-group" class="col-6">
               <label for="exampleInputTelefono">Idoneidad</label>
               <input type="text" class="form-control" id="idoneidad" placeholder="idoneidad" formControlName="idoneidad">
+              <small *ngIf="registro_estado.idoneidad.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>              
           </div>
+          <br>
 
           <div class="row">
             <div class="form-group" class="col-4">
               <label for="exampleInputTelefono">Años experiencia</label>
               <input type="text" class="form-control" id="anos_experiencia" placeholder="" formControlName="anos_experiencia">
+              <small *ngIf="registro_estado.anos_experiencia.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
             </div>
             <div class="form-group" class="col-4">
               <label for="exampleInputTelefono">Experiencia</label>
+              <small *ngIf="registro_estado.experiencia2.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
               <!--input type="text" class="form-control" id="experiencia" placeholder="" formControlName="experiencia"-->
               <div *ngFor="let item of myFormEditar.value.experiencia2">
                 <p>-{{item.nombre}}</p>
@@ -261,6 +448,7 @@
             </div>
             <div class="form-group" class="col-4">
               <label for="exampleInputTelefono">Idiomas</label>
+              <small *ngIf="registro_estado.idiomas2.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
               <!--input type="text" class="form-control" id="idiomas" placeholder="" formControlName="idiomas"-->
               <div *ngFor="let item of myFormEditar.value.idiomas2">
                 <p>-{{item.nombre}}</p>
@@ -295,7 +483,7 @@
                   <input type="text" class="form-control" id="martes_i" placeholder="" formControlName="martes_i">
                 </div>
                 <div class="col-4"><label for="exampleInputTelefono">Fin:</label>
-                  <input type="text" class="form-control" id="martes_i" placeholder="" formControlName="martes_f">
+                  <input type="text" class="form-control" id="martes_f" placeholder="" formControlName="martes_f">
                 </div>
               </div>
               <div class="form-group" class="row">
@@ -306,7 +494,7 @@
                   <input type="text" class="form-control" id="miercoles_i" placeholder="" formControlName="miercoles_i">
                 </div>
                 <div class="col-4"><label for="exampleInputTelefono">Fin:</label>
-                  <input type="text" class="form-control" id="miercoles_i" placeholder="" formControlName="miercoles_f">
+                  <input type="text" class="form-control" id="miercoles_f" placeholder="" formControlName="miercoles_f">
                 </div>
               </div>
               <div class="form-group" class="row">
@@ -317,7 +505,7 @@
                   <input type="text" class="form-control" id="jueves_i" placeholder="" formControlName="jueves_i">
                 </div>
                 <div class="col-4"><label for="exampleInputTelefono">Fin:</label>
-                  <input type="text" class="form-control" id="jueves_i" placeholder="" formControlName="jueves_f">
+                  <input type="text" class="form-control" id="jueves_f" placeholder="" formControlName="jueves_f">
                 </div>
               </div>
               <div class="form-group" class="row">
@@ -328,7 +516,7 @@
                   <input type="text" class="form-control" id="viernes_i" placeholder="" formControlName="viernes_i">
                 </div>
                 <div class="col-4"><label for="exampleInputTelefono">Fin:</label>
-                  <input type="text" class="form-control" id="viernes_i" placeholder="" formControlName="viernes_f">
+                  <input type="text" class="form-control" id="viernes_f" placeholder="" formControlName="viernes_f">
                 </div>
               </div>
               <div class="form-group" class="row">
@@ -336,10 +524,10 @@
                    <label for="exampleInputTelefono" style="font-weight: bold;">Sabado:</label>
                 </div>
                 <div class="col-4"><label for="exampleInputTelefono">Inicio:</label>
-                  <input type="text" class="form-control" id="lunes_f" placeholder="" formControlName="sabado_i">
+                  <input type="text" class="form-control" id="sabado_i" placeholder="" formControlName="sabado_i">
                 </div>
                 <div class="col-4"><label for="exampleInputTelefono">Fin:</label>
-                  <input type="text" class="form-control" id="lunes_f" placeholder="" formControlName="sabado_f">
+                  <input type="text" class="form-control" id="sabado_f" placeholder="" formControlName="sabado_f">
                 </div>
               </div>
               <div class="form-group" class="row">
@@ -350,78 +538,80 @@
                   <input type="text" class="form-control" id="domingo_i" placeholder="" formControlName="domingo_i">
                 </div>
                 <div class="col-4"><label for="exampleInputTelefono">Fin:</label>
-                  <input type="text" class="form-control" id="domingo_i" placeholder="" formControlName="domingo_f">
+                  <input type="text" class="form-control" id="domingo_f" placeholder="" formControlName="domingo_f">
                 </div>
               </div>
           </div>
           
-<!--           <br><br>
-<hr>
-<br><br>
-
-<div class="form-group" *ngIf="refer">
-  <nb-card-header>Referencias personales</nb-card-header>
-  <br><br>
-  <label style="font-weight: bold;">Referencia 1:</label> <br><br>
-    <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias2.nombre1}}<br>
-    <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias2.telefono1}}<br>
-    <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias2.direccion1}}<br>
-    <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias2.contacto1}}<br>
-    <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias2.cargo1}}<br>
-  <br>
-  <label style="font-weight: bold;">Referencia 2:</label> <br><br>
-    <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias2.nombre2}}<br>
-    <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias2.telefono2}}<br>
-    <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias2.direccion2}}<br>
-    <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias2.contacto2}}<br>
-    <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias2.cargo2}}<br>
-  <br>
-  <label style="font-weight: bold;">Referencia 2:</label> <br><br>
-    <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias2.nombre3}}<br>
-    <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias2.telefono3}}<br>
-    <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias2.direccion3}}<br>
-    <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias2.contacto3}}<br>
-    <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias2.cargo3}}<br>
-    <br>
-</div>
-
-<br><br>
-<hr>
-<br><br>
-
-<div class="form-group">
-  <nb-card-header>Referencias comerciales</nb-card-header>
-  <br>
-  <br>
-  <label style="font-weight: bold;">Referencia 1:</label> <br><br>
-    <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias22.nombre1}}<br>
-    <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias22.telefono1}}<br>
-    <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias22.direccion1}}<br>
-    <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias22.contacto1}}<br>
-    <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias22.cargo1}}<br>
-  <br>
-  <label style="font-weight: bold;">Referencia 2:</label> <br><br>
-    <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias22.nombre2}}<br>
-    <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias22.telefono2}}<br>
-    <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias22.direccion2}}<br>
-    <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias22.contacto2}}<br>
-    <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias22.cargo2}}<br>
-  <br>
-  <label style="font-weight: bold;">Referencia 2:</label> <br>
-    <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias22.nombre3}}<br>
-    <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias22.telefono3}}<br>
-    <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias22.direccion3}}<br>
-    <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias22.contacto3}}<br>
-    <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias22.cargo3}}<br>
-    <br>
-</div> -->
+          <!-- <br><br>
+          <hr>
+          <br><br>
+          
+          <div class="form-group" *ngIf="refer">
+            <nb-card-header>Referencias personales</nb-card-header>
+            <br><br>
+            <label style="font-weight: bold;">Referencia 1:</label> <br><br>
+              <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias2.nombre1}}<br>
+              <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias2.telefono1}}<br>
+              <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias2.direccion1}}<br>
+              <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias2.contacto1}}<br>
+              <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias2.cargo1}}<br>
+            <br>
+            <label style="font-weight: bold;">Referencia 2:</label> <br><br>
+              <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias2.nombre2}}<br>
+              <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias2.telefono2}}<br>
+              <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias2.direccion2}}<br>
+              <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias2.contacto2}}<br>
+              <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias2.cargo2}}<br>
+            <br>
+            <label style="font-weight: bold;">Referencia 2:</label> <br><br>
+              <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias2.nombre3}}<br>
+              <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias2.telefono3}}<br>
+              <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias2.direccion3}}<br>
+              <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias2.contacto3}}<br>
+              <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias2.cargo3}}<br>
+              <br>
+          </div>
+          
+          <br><br>
+          <hr>
+          <br><br>
+          
+          <div class="form-group">
+            <nb-card-header>Referencias comerciales</nb-card-header>
+            <br>
+            <br>
+            <label style="font-weight: bold;">Referencia 1:</label> <br><br>
+              <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias22.nombre1}}<br>
+              <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias22.telefono1}}<br>
+              <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias22.direccion1}}<br>
+              <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias22.contacto1}}<br>
+              <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias22.cargo1}}<br>
+            <br>
+            <label style="font-weight: bold;">Referencia 2:</label> <br><br>
+              <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias22.nombre2}}<br>
+              <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias22.telefono2}}<br>
+              <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias22.direccion2}}<br>
+              <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias22.contacto2}}<br>
+              <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias22.cargo2}}<br>
+            <br>
+            <label style="font-weight: bold;">Referencia 2:</label> <br>
+              <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias22.nombre3}}<br>
+              <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias22.telefono3}}<br>
+              <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias22.direccion3}}<br>
+              <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias22.contacto3}}<br>
+              <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias22.cargo3}}<br>
+              <br>
+          </div> -->
 
           <br><br>
           <hr>
           <br><br>
           
           <div class="form-group">
-            <nb-card-header>Documento de Indentidad</nb-card-header><br>
+            <nb-card-header>Documento de Indentidad</nb-card-header>
+            <small *ngIf="registro_estado.pasaporte.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
+            <br>
             <img src="{{myFormEditar.value.pasaporte}}" alt="" style="width: 600px; height: 600px; border-radius: 20px; ">
               <input [hidden]="clearPasaporte" type="file" name="Pasaporte" id="Pasaporte" (change)="onFileChangePasaporte($event)" #fileInput accept="image/*">
                 <div *ngIf="clearPasaporte">
@@ -435,7 +625,9 @@
           <br><br>
 
           <div class="form-group">
-            <nb-card-header>Logo</nb-card-header><br>
+            <nb-card-header>Logo</nb-card-header>
+            <small *ngIf="registro_estado.logo.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
+            <br>
             <img src="{{myFormEditar.value.logo}}" alt="" style="width: 600px; height: 600px; border-radius: 20px;">
               <input [hidden]="clearLogo" type="file" name="Logo" id="Logo" (change)="onFileChangeLogo($event)" #fileInput accept="image/*">
                 <div *ngIf="clearLogo">
@@ -449,7 +641,9 @@
           <br><br>
 
           <div class="form-group">
-            <nb-card-header>Aviso Operaciones</nb-card-header><br>
+            <nb-card-header>Aviso Operaciones</nb-card-header>
+            <small *ngIf="registro_estado.operaciones.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
+            <br>
             <img src="{{myFormEditar.value.operaciones}}" alt="" style="width: 600px; height: 600px; border-radius: 20px;">
               <input [hidden]="clearOperaciones" type="file" name="Operaciones" id="Operaciones" (change)="onFileChangeOperaciones($event)" #fileInput accept="image/*">
                 <div *ngIf="clearOperaciones">
@@ -463,7 +657,9 @@
           <br><br>
 
           <div class="form-group">
-            <nb-card-header>Idoneidad</nb-card-header><br>
+            <nb-card-header>Idoneidad</nb-card-header>
+            <small *ngIf="registro_estado.idoneidad_file.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
+            <br>
             <img src="{{myFormEditar.value.idoneidad_file}}" alt="" style="width: 600px; height: 600px; border-radius: 20px;">
               <input [hidden]="clearIdoneidad_file" type="file" name="Idoneidad_file" id="Idoneidad_file" (change)="onFileChangeIdoneidad_file($event)" #fileInput accept="image/*">
                 <div *ngIf="clearIdoneidad_file">
@@ -477,7 +673,9 @@
           <br><br>
 
           <div class="form-group">
-            <nb-card-header>Recibo</nb-card-header><br>
+            <nb-card-header>Recibo</nb-card-header>
+            <small *ngIf="registro_estado.recibo_servicio.estado == 0" class="form-text" style="color: #ffa100;">Campo faltante</small>
+            <br>
             <img src="{{myFormEditar.value.recibo_servicio}}" alt="" style="width: 600px; height: 600px; border-radius: 20px;">
               <input [hidden]="clearrecibo_servicio" type="file" name="recibo_servicio" id="recibo_servicio" (change)="onFileChangerecibo_servicio($event)" #fileInput accept="image/*">
                 <div *ngIf="clearrecibo_servicio">

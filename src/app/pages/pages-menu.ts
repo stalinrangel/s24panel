@@ -107,6 +107,10 @@ export const MENU_ITEMS0: NbMenuItem[] = [
         link: '/pages/socios/registrar',
       },
       {
+        title: 'Registros Incompletos',
+        link: '/pages/socios/incompletos',
+      },
+      {
         title: 'Reporte Excel',
         link: '/pages/socios/reporte',
       }
@@ -455,6 +459,10 @@ export const MENU_ITEMS1: NbMenuItem[] = [
         link: '/pages/socios/registrar',
       },
       {
+        title: 'Registros Incompletos',
+        link: '/pages/socios/incompletos',
+      },
+      {
         title: 'Reporte Excel',
         link: '/pages/socios/reporte',
       }
@@ -638,6 +646,10 @@ export const MENU_ITEMS5: NbMenuItem[] = [
         link: '/pages/socios/registrar',
       },
       {
+        title: 'Registros Incompletos',
+        link: '/pages/socios/incompletos',
+      },
+      {
         title: 'Reporte Excel',
         link: '/pages/socios/reporte',
       }
@@ -807,6 +819,10 @@ export const MENU_ITEMS6: NbMenuItem[] = [
         link: '/pages/socios/registrar',
       },
       {
+        title: 'Registros Incompletos',
+        link: '/pages/socios/incompletos',
+      },
+      {
         title: 'Reporte Excel',
         link: '/pages/socios/reporte',
       }
@@ -974,6 +990,10 @@ export const MENU_ITEMS7: NbMenuItem[] = [
       {
         title: 'Por registar',
         link: '/pages/socios/registrar',
+      },
+      {
+        title: 'Registros Incompletos',
+        link: '/pages/socios/incompletos',
       },
       {
         title: 'Reporte Excel',

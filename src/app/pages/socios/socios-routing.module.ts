@@ -6,6 +6,7 @@ import { SociosAgregarComponent } from './socios-agregar/socios-agregar.componen
 import { SociosVerComponent } from './socios-ver/socios-ver.component';
 import { SociosReporteComponent } from './socios-reporte/socios-reporte.component';
 import { registrarComponent } from './registrar/registrar.component';
+import { SociosIncompletosComponent } from './socios-incompletos/socios-incompletos.component';
 
 const routes: Routes = [{
   path: '',
@@ -22,6 +23,9 @@ const routes: Routes = [{
   },{
     path: 'reporte',
     component: SociosReporteComponent,
+  },{
+    path: 'incompletos',
+    component: SociosIncompletosComponent,
   }],
 }];
 
@@ -42,5 +46,6 @@ export const routedComponents = [
   SociosAgregarComponent,
   SociosVerComponent,
   SociosReporteComponent,
-  registrarComponent
+  registrarComponent,
+  SociosIncompletosComponent
 ];

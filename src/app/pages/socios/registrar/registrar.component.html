@@ -327,62 +327,62 @@
           <hr>
           <br><br>
 
-          <div class="form-group" *ngIf="refer">
-            <nb-card-header>Referencias personales</nb-card-header>
-            <br><br>
-            <label style="font-weight: bold;">Referencia 1:</label> <br><br>
-              <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias2.nombre1}}<br>
-              <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias2.telefono1}}<br>
-              <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias2.direccion1}}<br>
-              <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias2.contacto1}}<br>
-              <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias2.cargo1}}<br>
-            <br>
-            <label style="font-weight: bold;">Referencia 2:</label> <br><br>
-              <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias2.nombre2}}<br>
-              <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias2.telefono2}}<br>
-              <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias2.direccion2}}<br>
-              <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias2.contacto2}}<br>
-              <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias2.cargo2}}<br>
-            <br>
-            <label style="font-weight: bold;">Referencia 2:</label> <br><br>
-              <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias2.nombre3}}<br>
-              <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias2.telefono3}}<br>
-              <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias2.direccion3}}<br>
-              <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias2.contacto3}}<br>
-              <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias2.cargo3}}<br>
-              <br>
-          </div>
-          
-          <br><br>
-          <hr>
-          <br><br>
+<!--           <div class="form-group" *ngIf="refer">
+  <nb-card-header>Referencias personales</nb-card-header>
+  <br><br>
+  <label style="font-weight: bold;">Referencia 1:</label> <br><br>
+    <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias2.nombre1}}<br>
+    <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias2.telefono1}}<br>
+    <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias2.direccion1}}<br>
+    <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias2.contacto1}}<br>
+    <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias2.cargo1}}<br>
+  <br>
+  <label style="font-weight: bold;">Referencia 2:</label> <br><br>
+    <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias2.nombre2}}<br>
+    <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias2.telefono2}}<br>
+    <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias2.direccion2}}<br>
+    <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias2.contacto2}}<br>
+    <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias2.cargo2}}<br>
+  <br>
+  <label style="font-weight: bold;">Referencia 2:</label> <br><br>
+    <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias2.nombre3}}<br>
+    <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias2.telefono3}}<br>
+    <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias2.direccion3}}<br>
+    <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias2.contacto3}}<br>
+    <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias2.cargo3}}<br>
+    <br>
+</div>
 
-          <div class="form-group">
-            <nb-card-header>Referencias comerciales</nb-card-header>
-            <br>
-            <br>
-            <label style="font-weight: bold;">Referencia 1:</label> <br><br>
-              <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias22.nombre1}}<br>
-              <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias22.telefono1}}<br>
-              <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias22.direccion1}}<br>
-              <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias22.contacto1}}<br>
-              <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias22.cargo1}}<br>
-            <br>
-            <label style="font-weight: bold;">Referencia 2:</label> <br><br>
-              <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias22.nombre2}}<br>
-              <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias22.telefono2}}<br>
-              <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias22.direccion2}}<br>
-              <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias22.contacto2}}<br>
-              <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias22.cargo2}}<br>
-            <br>
-            <label style="font-weight: bold;">Referencia 2:</label> <br>
-              <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias22.nombre3}}<br>
-              <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias22.telefono3}}<br>
-              <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias22.direccion3}}<br>
-              <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias22.contacto3}}<br>
-              <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias22.cargo3}}<br>
-              <br>
-          </div>
+<br><br>
+<hr>
+<br><br>
+
+<div class="form-group">
+  <nb-card-header>Referencias comerciales</nb-card-header>
+  <br>
+  <br>
+  <label style="font-weight: bold;">Referencia 1:</label> <br><br>
+    <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias22.nombre1}}<br>
+    <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias22.telefono1}}<br>
+    <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias22.direccion1}}<br>
+    <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias22.contacto1}}<br>
+    <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias22.cargo1}}<br>
+  <br>
+  <label style="font-weight: bold;">Referencia 2:</label> <br><br>
+    <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias22.nombre2}}<br>
+    <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias22.telefono2}}<br>
+    <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias22.direccion2}}<br>
+    <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias22.contacto2}}<br>
+    <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias22.cargo2}}<br>
+  <br>
+  <label style="font-weight: bold;">Referencia 2:</label> <br>
+    <label style="font-weight: bold;">Nombre:</label>{{myFormEditar.value.referencias22.nombre3}}<br>
+    <label style="font-weight: bold;">Telefono:</label>{{myFormEditar.value.referencias22.telefono3}}<br>
+    <label style="font-weight: bold;">Dirección:</label>{{myFormEditar.value.referencias22.direccion3}}<br>
+    <label style="font-weight: bold;">Contacto:</label>{{myFormEditar.value.referencias22.contacto3}}<br>
+    <label style="font-weight: bold;">Cargo:</label>{{myFormEditar.value.referencias22.cargo3}}<br>
+    <br>
+</div> -->
 
           <br><br>
           <hr>
