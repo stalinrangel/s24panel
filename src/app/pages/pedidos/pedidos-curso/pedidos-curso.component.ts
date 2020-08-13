@@ -222,7 +222,9 @@ export class PedidosCursoComponent implements OnInit, OnDestroy{
 
              this.data.pedidos[i].ref = 'S00'+this.data.pedidos[i].id;
 
-             this.data.pedidos[i].telefono=this.data.pedidos[i].repartidor.usuario.telefono;
+             if(this.data.pedidos[i].repartidor!=null){
+              this.data.pedidos[i].telefono=this.data.pedidos[i].repartidor.usuario.telefono;
+             }
 
              //Control de estados del pedido
              

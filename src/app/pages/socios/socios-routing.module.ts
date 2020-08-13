@@ -6,6 +6,8 @@ import { SociosAgregarComponent } from './socios-agregar/socios-agregar.componen
 import { SociosVerComponent } from './socios-ver/socios-ver.component';
 import { SociosReporteComponent } from './socios-reporte/socios-reporte.component';
 import { registrarComponent } from './registrar/registrar.component';
+import { inactivosComponent } from './inactivos/inactivos.component';
+import { activosComponent } from './activos/activos.component';
 import { SociosIncompletosComponent } from './socios-incompletos/socios-incompletos.component';
 
 const routes: Routes = [{
@@ -17,6 +19,12 @@ const routes: Routes = [{
   },{
     path: 'ver',
     component: SociosVerComponent,
+  },{
+    path: 'activos',
+    component: activosComponent,
+  },{
+    path: 'inactivos',
+    component: inactivosComponent,
   },{
     path: 'registrar',
     component: registrarComponent,
@@ -47,5 +55,7 @@ export const routedComponents = [
   SociosVerComponent,
   SociosReporteComponent,
   registrarComponent,
-  SociosIncompletosComponent
+  SociosIncompletosComponent,
+  inactivosComponent,
+  activosComponent
 ];

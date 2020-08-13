@@ -241,6 +241,7 @@
               <input type="text" class="form-control" id="contacto_cargo" placeholder="" formControlName="contacto_cargo">
             </div>
 
+
             <div class="form-group" class="col-6">
               <label for="exampleInputTelefono">Idoneidad</label>
               <input type="text" class="form-control" id="idoneidad" placeholder="idoneidad" formControlName="idoneidad">
@@ -461,13 +462,27 @@
           <br><br>
           <hr>
           <br><br>
-
+          
           <div class="form-group">
             <nb-card-header>Idoneidad</nb-card-header><br>
             <img src="{{myFormEditar.value.idoneidad_file}}" alt="" style="width: 600px; height: 600px; border-radius: 20px;">
               <input [hidden]="clearIdoneidad_file" type="file" name="Idoneidad_file" id="Idoneidad_file" (change)="onFileChangeIdoneidad_file($event)" #fileInput accept="image/*">
                 <div *ngIf="clearIdoneidad_file">
                   <button type="button" class="btn btn-danger btn-tn" (click)="clearFileIdoneidad_file()">Eliminar</button>
+                </div>
+                <p [hidden]="clearIdoneidad_file" style="color: #c71717"><b>Sugerencia:</b> La dimensión de la imagen no debe ser mayor a 870x370 px.</p>
+          </div>
+
+          <br><br>
+          <hr>
+          <br><br>
+
+          <div class="form-group">
+            <nb-card-header>record_policivo</nb-card-header><br>
+            <img src="{{myFormEditar.value.record_policivo}}" alt="" style="width: 600px; height: 600px; border-radius: 20px;">
+              <input [hidden]="clearIdoneidad_file" type="file" name="record_policivo" id="record_policivo" (change)="onFileChangerecord_policivo($event)" #fileInput accept="image/*">
+                <div *ngIf="clearIdoneidad_file">
+                  <button type="button" class="btn btn-danger btn-tn" (click)="clearFilerecord_policivo()">Eliminar</button>
                 </div>
                 <p [hidden]="clearIdoneidad_file" style="color: #c71717"><b>Sugerencia:</b> La dimensión de la imagen no debe ser mayor a 870x370 px.</p>
           </div>

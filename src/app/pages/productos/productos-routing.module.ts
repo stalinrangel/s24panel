@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductosComponent } from './productos.component';
 import { ProductosVerComponent } from './productos-ver/productos-ver.component';
 import { ProductosVerEditadosComponent } from './productos-ver-editados/productos-ver-editados.component';
+import { ProductosVerOnComponent } from './productos-ver-on/productos-ver-on.component';
+import { ProductosVerOffComponent } from './productos-ver-off/productos-ver-off.component';
 import { ProductosAgregarComponent } from './productos-agregar/productos-agregar.component';
 
 const routes: Routes = [{
@@ -14,6 +16,12 @@ const routes: Routes = [{
   },{
     path: 'editados',
     component: ProductosVerEditadosComponent,
+  },{
+    path: 'on',
+    component: ProductosVerOnComponent,
+  },{
+    path: 'off',
+    component: ProductosVerOffComponent,
   },{
     path: 'agregar',
     component: ProductosAgregarComponent,
@@ -36,5 +44,7 @@ export const routedComponents = [
   ProductosComponent,
   ProductosVerComponent,
   ProductosVerEditadosComponent,
+  ProductosVerOnComponent,
+  ProductosVerOffComponent,
   ProductosAgregarComponent,
 ];

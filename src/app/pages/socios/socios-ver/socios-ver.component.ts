@@ -149,6 +149,7 @@ export class SociosVerComponent implements OnInit{
       foto: [''],
       pasaporte: [''],
       idoneidad_file: [''],
+      record_policivo : [''],
       estado2: [''],
       sexo: [''],
       contrato: [''],
@@ -239,8 +240,8 @@ export class SociosVerComponent implements OnInit{
              //this.productList[i].usuario.horaAux = hora+':'+minutos+':'+segundos;
 
            }
-           
-           this.productList = this.productList.sort((a, b) => b.enfinalizados - a.enfinalizados);
+           console.log(this.productList);
+           this.productList = this.productList.sort((a, b) => b.encurso - a.encurso);
            
            this.filteredItems = this.productList;
            this.datos=this.productList;
@@ -437,7 +438,10 @@ export class SociosVerComponent implements OnInit{
       console.log(this.objAEditar);
 
       var tam_contrato=obj.usuario.contrato.length;
-      this.contrato=obj.usuario.contrato[tam_contrato-1].url;
+      this.contrato="";
+       if (obj.usuario.contrato.length!=0) {
+         this.contrato=obj.usuario.contrato[tam_contrato-1].url;
+       }
       console.log(this.contrato);
 
       this.user=obj.usuario;
@@ -489,6 +493,7 @@ export class SociosVerComponent implements OnInit{
       this.myFormEditar.patchValue({experiencia2 : JSON.parse(this.objAEditar.usuario.registro.experiencia)});
       this.myFormEditar.patchValue({anos_experiencia : this.objAEditar.usuario.registro.anos_experiencia});
       this.myFormEditar.patchValue({idoneidad : this.objAEditar.usuario.registro.idoneidad});
+      this.myFormEditar.patchValue({record_policivo : this.objAEditar.usuario.registro.record_policivo});
       this.myFormEditar.patchValue({disponibilidad : this.objAEditar.usuario.registro.disponibilidad});
       this.myFormEditar.patchValue({disponibilidad2 : JSON.parse(this.objAEditar.usuario.registro.disponibilidad)});
       this.myFormEditar.patchValue({idiomas : this.objAEditar.usuario.registro.idiomas});

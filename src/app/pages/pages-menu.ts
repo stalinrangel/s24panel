@@ -65,12 +65,20 @@ export const MENU_ITEMS0: NbMenuItem[] = [
         link: '/pages/productos/agregar',
       },*/
       {
-        title: 'Ver Servicios',
+        title: 'Todos Servicios',
         link: '/pages/productos/ver',
+      },
+      {
+        title: 'Servicios Activos',
+        link: '/pages/productos/on',
       },
       {
         title: 'Servicios Editados',
         link: '/pages/productos/editados',
+      },
+      {
+        title: 'Servicios Inactivos',
+        link: '/pages/productos/off',
       },
      
     ],
@@ -99,8 +107,16 @@ export const MENU_ITEMS0: NbMenuItem[] = [
         link: '/pages/socios/agregar',
       },*/
       {
-        title: 'Ver Proveedores',
+        title: 'Todos Proveedores',
         link: '/pages/socios/ver',
+      },
+       {
+        title: 'Activos',
+        link: '/pages/socios/activos',
+      },
+      {
+        title: 'Inactivos',
+        link: '/pages/socios/inactivos',
       },
       {
         title: 'Por registar',
@@ -436,12 +452,20 @@ export const MENU_ITEMS1: NbMenuItem[] = [
     children: [
 
       {
-        title: 'Ver Servicios',
+        title: 'Todos Servicios',
         link: '/pages/productos/ver',
+      },
+      {
+        title: 'Servicios Activos',
+        link: '/pages/productos/on',
       },
       {
         title: 'Servicios Editados',
         link: '/pages/productos/editados',
+      },
+      {
+        title: 'Servicios Inactivos',
+        link: '/pages/productos/off',
       },
      
     ],
@@ -451,8 +475,16 @@ export const MENU_ITEMS1: NbMenuItem[] = [
     icon: 'ion-android-bicycle',
     children: [
       {
-        title: 'Ver Proveedores',
+        title: 'Todos Proveedores',
         link: '/pages/socios/ver',
+      },
+       {
+        title: 'Activos',
+        link: '/pages/socios/activos',
+      },
+      {
+        title: 'Inactivos',
+        link: '/pages/socios/inactivos',
       },
       {
         title: 'Por registar',
@@ -623,12 +655,20 @@ export const MENU_ITEMS5: NbMenuItem[] = [
     children: [
 
       {
-        title: 'Ver Servicios',
+        title: 'Todos Servicios',
         link: '/pages/productos/ver',
+      },
+      {
+        title: 'Servicios Activos',
+        link: '/pages/productos/on',
       },
       {
         title: 'Servicios Editados',
         link: '/pages/productos/editados',
+      },
+      {
+        title: 'Servicios Inactivos',
+        link: '/pages/productos/off',
       },
      
     ],
@@ -637,9 +677,17 @@ export const MENU_ITEMS5: NbMenuItem[] = [
     title: 'Proveedores',
     icon: 'ion-android-bicycle',
     children: [
-      {
-        title: 'Ver Proveedores',
+       {
+        title: 'Todos Proveedores',
         link: '/pages/socios/ver',
+      },
+       {
+        title: 'Activos',
+        link: '/pages/socios/activos',
+      },
+      {
+        title: 'Inactivos',
+        link: '/pages/socios/inactivos',
       },
       {
         title: 'Por registar',
@@ -796,12 +844,20 @@ export const MENU_ITEMS6: NbMenuItem[] = [
     children: [
 
       {
-        title: 'Ver Servicios',
+        title: 'Todos Servicios',
         link: '/pages/productos/ver',
+      },
+      {
+        title: 'Servicios Activos',
+        link: '/pages/productos/on',
       },
       {
         title: 'Servicios Editados',
         link: '/pages/productos/editados',
+      },
+      {
+        title: 'Servicios Inactivos',
+        link: '/pages/productos/off',
       },
      
     ],
@@ -810,9 +866,17 @@ export const MENU_ITEMS6: NbMenuItem[] = [
     title: 'Proveedores',
     icon: 'ion-android-bicycle',
     children: [
-      {
-        title: 'Ver Proveedores',
+       {
+        title: 'Todos Proveedores',
         link: '/pages/socios/ver',
+      },
+       {
+        title: 'Activos',
+        link: '/pages/socios/activos',
+      },
+      {
+        title: 'Inactivos',
+        link: '/pages/socios/inactivos',
       },
       {
         title: 'Por registar',
@@ -969,12 +1033,20 @@ export const MENU_ITEMS7: NbMenuItem[] = [
     children: [
 
       {
-        title: 'Ver Servicios',
+        title: 'Todos Servicios',
         link: '/pages/productos/ver',
+      },
+      {
+        title: 'Servicios Activos',
+        link: '/pages/productos/on',
       },
       {
         title: 'Servicios Editados',
         link: '/pages/productos/editados',
+      },
+      {
+        title: 'Servicios Inactivos',
+        link: '/pages/productos/off',
       },
      
     ],
@@ -984,8 +1056,16 @@ export const MENU_ITEMS7: NbMenuItem[] = [
     icon: 'ion-android-bicycle',
     children: [
       {
-        title: 'Ver Proveedores',
+        title: 'Todos Proveedores',
         link: '/pages/socios/ver',
+      },
+      {
+        title: 'Activos',
+        link: '/pages/socios/activos',
+      },
+      {
+        title: 'Inactivos',
+        link: '/pages/socios/inactivos',
       },
       {
         title: 'Por registar',

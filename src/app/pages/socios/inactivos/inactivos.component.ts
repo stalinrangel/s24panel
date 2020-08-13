@@ -19,15 +19,15 @@ import { HeaderService } from '../../../services/header-service/header.service';
 
 @Component({
   selector: 'ngx-ver-socios',
-  templateUrl: './registrar.component.html',
+  templateUrl: './inactivos.component.html',
   /*styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
     }
   `],*/
-  styleUrls: ['./registrar.component.scss'],
+  styleUrls: ['./inactivos.component.scss'],
 })
-export class registrarComponent implements OnInit{
+export class inactivosComponent implements OnInit{
 
   //----Alertas---<
   config: ToasterConfig;
@@ -184,7 +184,7 @@ export class registrarComponent implements OnInit{
       }
     
     this.loading = true;
-    this.http.get(this.rutaService.getRutaApi()+'registro?token='+localStorage.getItem('mouvers_token')+'&ciudad_id='+localStorage.getItem('mouvers_ciudad'))
+    this.http.get(this.rutaService.getRutaApi()+'inactivos?token='+localStorage.getItem('mouvers_token')+'&ciudad_id='+localStorage.getItem('mouvers_ciudad'))
        .toPromise()
        .then(
          data => { // Success
@@ -195,8 +195,11 @@ export class registrarComponent implements OnInit{
            this.data=data;
            this.productList = this.data.repartidores;
            for (var i = 0; i < this.productList.length; ++i) {
-             if(this.productList[i].usuario.registro.tipo==2) {
-               this.productList[i].usuario.imagen=this.productList[i].usuario.registro.logo;
+            console.log(this.productList[i].id);
+             if(this.productList[i].usuario.registro!=null){
+               if(this.productList[i].usuario.registro.tipo==2) {
+                 this.productList[i].usuario.imagen=this.productList[i].usuario.registro.logo;
+               }
              }
            }
            this.filteredItems = this.productList;
@@ -1661,8 +1664,6 @@ export class registrarComponent implements OnInit{
               }else if (this.productList[i].usuario.email.toUpperCase().indexOf(this.inputName.toUpperCase())>=0) {
                  this.filteredItems.push(this.productList[i]);
               }else if (this.productList[i].usuario.telefono.toUpperCase().indexOf(this.inputName.toUpperCase())>=0) {
-                 this.filteredItems.push(this.productList[i]);
-              }else if (this.productList[i].usuario.estado.toUpperCase().indexOf(this.inputName.toUpperCase())>=0) {
                  this.filteredItems.push(this.productList[i]);
               }else if (this.productList[i].usuario.ciudad.toUpperCase().indexOf(this.inputName.toUpperCase())>=0) {
                  this.filteredItems.push(this.productList[i]);
