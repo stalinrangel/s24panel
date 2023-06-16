@@ -177,9 +177,10 @@ export class PedidosAceptarComponent implements OnInit, OnDestroy{
              
              if(this.data.pedidos[i].estado == 1){
                this.data.pedidos[i].estado = 'No asignado';
+               this.productList.push(this.data.pedidos[i]);
              }else if (this.data.pedidos[i].estado == 2) {
                this.data.pedidos[i].estado = 'Asignado no aceptado por proveedor';
-               this.productList.push(this.data.pedidos[i]);
+               
              }else if (this.data.pedidos[i].estado == 3) {
                this.data.pedidos[i].estado = 'En camino';
              }else if (this.data.pedidos[i].estado == 4) {
@@ -188,7 +189,7 @@ export class PedidosAceptarComponent implements OnInit, OnDestroy{
            }
 
            setTimeout(()=>{
-               //this.productList = this.data.pedidos;
+              // this.productList = this.data.pedidos;
                this.datos=this.productList;
                this.filteredItems = this.productList;
                //console.log(this.productList);
