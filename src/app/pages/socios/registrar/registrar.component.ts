@@ -184,7 +184,7 @@ export class registrarComponent implements OnInit{
       }
     
     this.loading = true;
-    this.http.get(this.rutaService.getRutaApi()+'registro?token='+localStorage.getItem('mouvers_token')+'&ciudad_id='+localStorage.getItem('mouvers_ciudad'))
+    this.http.get(this.rutaService.getRutaApi()+'repartidores/estado/revision?token='+localStorage.getItem('mouvers_token')+'&ciudad_id='+localStorage.getItem('mouvers_ciudad'))
        .toPromise()
        .then(
          data => { // Success
