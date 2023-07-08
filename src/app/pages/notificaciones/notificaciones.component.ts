@@ -299,7 +299,7 @@ export class notificacionesComponent implements OnInit{
 	enviarNotificaciones(): void {
       this.loading = true;
 
-      this.http.get(this.rutaService.getRutaApi()+'onesignalNotificaciones.php?accion=17&ciudad_id='+localStorage.getItem('mouvers_ciudad')+'&contenido='+this.msg)
+      this.http.get(this.rutaService.getRutaApi()+'gclientes.php?accion=17&ciudad_id=1&titulo=Service24'+/*localStorage.getItem('mouvers_ciudad')+*/'&contenido='+this.msg)
          .toPromise()
          .then(
            data => { // Success
@@ -335,7 +335,7 @@ export class notificacionesComponent implements OnInit{
     enviarNotificacionesP(): void {
       this.loading = true;
 
-      this.http.get(this.rutaService.getRutaApi()+'onesignalNotificacionesp.php?accion=17&ciudad_id='+localStorage.getItem('mouvers_ciudad')+'&contenido='+this.msgp)
+      this.http.get(this.rutaService.getRutaApi()+'gproveedores.php?accion=17&ciudad_id=1&titulo=Service24'+/*localStorage.getItem('mouvers_ciudad')+*/'&contenido='+this.msgp)
          .toPromise()
          .then(
            data => { // Success

@@ -3137,7 +3137,7 @@ var AppComponent = /** @class */ (function () {
         var that = this;
         //Subscripcion a las notificaciones
         OneSignal.push(["init", {
-                appId: "d972ea38-fbba-48de-ac2c-991904917c41",
+                appId: "096198a9-a419-472b-8304-2814c7685496",
                 autoRegister: false,
                 subdomainName: 'https://service24.OS.TC',
                 allowLocalhostAsSecureOrigin: true,
