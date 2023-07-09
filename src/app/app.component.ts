@@ -54,9 +54,9 @@ export class AppComponent implements OnInit {
     	
     	//Subscripcion a las notificaciones
 	    OneSignal.push(["init", {
-	      appId: "096198a9-a419-472b-8304-2814c7685496",
+	      appId: "d972ea38-fbba-48de-ac2c-991904917c41",
 	      autoRegister: false, // Set to true to automatically prompt visitors
-	      subdomainName: 'https://service24.OS.TC',
+	      subdomainName: 'https://service24urugu.OS.TC',
 	      allowLocalhostAsSecureOrigin: true,
 
 	      httpPermissionRequest: {

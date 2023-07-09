@@ -101,11 +101,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
     //Detectar una nueva notificaion
     this.viewHeaderEventService.viewHeaderData.subscribe(
         (data: any) => {
-          //console.log(data); 
+          console.log(data); 
           if (data.accion == '2') {
+            console.log('accion 2'); 
             this.newEventChat(data);
+            this.initConversationsCli();
+            this.initConversationsRep();
+            this.initNotificationsCli();
+            this.showToast('info', 'Nuevo Mensaje', data.contenido);
           }else if (data.accion == '4' || data.accion == '5' || data.accion == '6' || data.accion == '16') {
+            console.log('accion ',data.accion); 
+            this.newEventChat(data);
+            setTimeout(() => {
+              this.initNotificationsCli();
+            }, 3000);
             
+            //this.showToast('info', 'Info!', data.contenido);
             this.newEventNotificationCli(data);
           }
       });
@@ -331,6 +342,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   //agregar mgs de una notificacion
   newMensaje(obj, contenido){
+
     var mensaje = {
             id: obj.msg.id,
             msg: contenido,
@@ -347,8 +359,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
                 token_notificacion: obj.emisor.token_notificacion
             }
         };
-
-    this.headerService.addConversation(mensaje);
+        console.log('addConversation');
+    //this.headerService.addConversation(mensaje);
   }
 
   /*//Funcion de prueba
@@ -407,6 +419,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   newEventChat(data){
     //this.iconChats = 'fa fa-envelope';
+    console.log('newEventChat'); 
     this.eventChat = data;
     this.getEventChat();
   }
@@ -416,7 +429,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       var obj = JSON.parse(this.eventChat.obj);
       var contenido = this.eventChat.contenido;
       this.eventChat = null;
-      this.newMensaje(obj, contenido);
+      console.log('newMensaje');
+      //this.newMensaje(obj, contenido);
     }
   }
 
@@ -788,7 +802,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   newEventNotificationCli(data){
-
+    console.log(data); 
     //Solo mostrar la alerta
     if (data.accion == '16') {
       this.showToastPermanente('warning', 'Warning!', data.contenido);

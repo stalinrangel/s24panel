@@ -33,6 +33,7 @@ export class HeaderService {
 
 	//agregar mensaje al principio del array
 	addConversation(mensaje){
+		console.log('headesaddConversation');
 		var existe = false;
 		if (mensaje.emisor.tipo_usuario == 2) {
 			for (var i = 0; i < this.conversationsCli.length; ++i) {
@@ -71,6 +72,7 @@ export class HeaderService {
 
 	//agregar mensaje al final del array
 	pushConversation(mensaje){
+		console.log('pushConversation')
 		if (mensaje.emisor.tipo_usuario == 2) {
 			this.conversationsCli.push(mensaje);
 		}else if (mensaje.emisor.tipo_usuario == 3) {
