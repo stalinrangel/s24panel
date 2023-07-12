@@ -1300,8 +1300,8 @@ var HeaderComponent = /** @class */ (function () {
                 setTimeout(function () {
                     _this.initNotificationsCli();
                 }, 3000);
-                //this.showToast('info', 'Info!', data.contenido);
-                _this.newEventNotificationCli(data);
+                _this.showToast('warning', 'Notificación', data.contenido);
+                //this.newEventNotificationCli(data);
             }
         });
     }

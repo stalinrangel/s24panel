@@ -115,8 +115,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
               this.initNotificationsCli();
             }, 3000);
             
-            //this.showToast('info', 'Info!', data.contenido);
-            this.newEventNotificationCli(data);
+            this.showToast('warning', 'Notificación', data.contenido);
+            //this.newEventNotificationCli(data);
           }
       });
   }
