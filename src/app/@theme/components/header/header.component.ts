@@ -104,14 +104,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
           console.log(data); 
           if (data.accion == '2') {
             console.log('accion 2'); 
-            this.newEventChat(data);
+            //this.newEventChat(data);
             this.initConversationsCli();
             this.initConversationsRep();
-            this.initNotificationsCli();
             this.showToast('info', 'Nuevo Mensaje', data.contenido);
           }else if (data.accion == '4' || data.accion == '5' || data.accion == '6' || data.accion == '16') {
             console.log('accion ',data.accion); 
-            this.newEventChat(data);
+            //this.newEventChat(data);
             setTimeout(() => {
               this.initNotificationsCli();
             }, 3000);

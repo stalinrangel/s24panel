@@ -1286,11 +1286,21 @@ var HeaderComponent = /** @class */ (function () {
         this.ciudadselec = localStorage.getItem('mouvers_ciudad');
         //Detectar una nueva notificaion
         this.viewHeaderEventService.viewHeaderData.subscribe(function (data) {
-            //console.log(data); 
+            console.log(data);
             if (data.accion == '2') {
-                _this.newEventChat(data);
+                console.log('accion 2');
+                //this.newEventChat(data);
+                _this.initConversationsCli();
+                _this.initConversationsRep();
+                _this.showToast('info', 'Nuevo Mensaje', data.contenido);
             }
             else if (data.accion == '4' || data.accion == '5' || data.accion == '6' || data.accion == '16') {
+                console.log('accion ', data.accion);
+                //this.newEventChat(data);
+                setTimeout(function () {
+                    _this.initNotificationsCli();
+                }, 3000);
+                //this.showToast('info', 'Info!', data.contenido);
                 _this.newEventNotificationCli(data);
             }
         });
@@ -1483,7 +1493,8 @@ var HeaderComponent = /** @class */ (function () {
                 token_notificacion: obj.emisor.token_notificacion
             }
         };
-        this.headerService.addConversation(mensaje);
+        console.log('addConversation');
+        //this.headerService.addConversation(mensaje);
     };
     /*//Funcion de prueba
     i = 1;
@@ -1534,6 +1545,7 @@ var HeaderComponent = /** @class */ (function () {
     };
     HeaderComponent.prototype.newEventChat = function (data) {
         //this.iconChats = 'fa fa-envelope';
+        console.log('newEventChat');
         this.eventChat = data;
         this.getEventChat();
     };
@@ -1542,7 +1554,8 @@ var HeaderComponent = /** @class */ (function () {
             var obj = JSON.parse(this.eventChat.obj);
             var contenido = this.eventChat.contenido;
             this.eventChat = null;
-            this.newMensaje(obj, contenido);
+            console.log('newMensaje');
+            //this.newMensaje(obj, contenido);
         }
     };
     HeaderComponent.prototype.initNotificationsCli = function () {
@@ -1851,6 +1864,7 @@ var HeaderComponent = /** @class */ (function () {
         }
     };
     HeaderComponent.prototype.newEventNotificationCli = function (data) {
+        console.log(data);
         //Solo mostrar la alerta
         if (data.accion == '16') {
             this.showToastPermanente('warning', 'Warning!', data.contenido);
@@ -3137,9 +3151,9 @@ var AppComponent = /** @class */ (function () {
         var that = this;
         //Subscripcion a las notificaciones
         OneSignal.push(["init", {
-                appId: "096198a9-a419-472b-8304-2814c7685496",
+                appId: "d972ea38-fbba-48de-ac2c-991904917c41",
                 autoRegister: false,
-                subdomainName: 'https://service24.OS.TC',
+                subdomainName: 'https://service24urugu.OS.TC',
                 allowLocalhostAsSecureOrigin: true,
                 httpPermissionRequest: {
                     enable: true,
@@ -4137,6 +4151,7 @@ var HeaderService = /** @class */ (function () {
     };
     //agregar mensaje al principio del array
     HeaderService.prototype.addConversation = function (mensaje) {
+        console.log('headesaddConversation');
         var existe = false;
         if (mensaje.emisor.tipo_usuario == 2) {
             for (var i = 0; i < this.conversationsCli.length; ++i) {
@@ -4173,6 +4188,7 @@ var HeaderService = /** @class */ (function () {
     };
     //agregar mensaje al final del array
     HeaderService.prototype.pushConversation = function (mensaje) {
+        console.log('pushConversation');
         if (mensaje.emisor.tipo_usuario == 2) {
             this.conversationsCli.push(mensaje);
         }
