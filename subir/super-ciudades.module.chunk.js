@@ -1690,6 +1690,7 @@ var SuperCiudadesAgregarComponent = /** @class */ (function () {
             localStorage.removeItem('mouvers_establecimiento_id');
             this.router.navigateByUrl('/pagessimples/loginf');
         }
+        this.zonas(1);
         this.loading = true;
         this.http.get(this.rutaService.getRutaApi() + 'ciudad?pais_id=' + localStorage.getItem('mouvers_pais') + 'token=' + localStorage.getItem('mouvers_token'))
             .toPromise()
@@ -1716,7 +1717,7 @@ var SuperCiudadesAgregarComponent = /** @class */ (function () {
                 //this.showToast('info', 'Info!', msg.error.error);
             }
         });
-        this.geolocalizar();
+        //this.geolocalizar();
         this.http.get(this.rutaService.getRutaApi() + 'zonas?ciudad_id=' + localStorage.getItem('mouvers_ciudad') + 'token=' + localStorage.getItem('mouvers_token'))
             .toPromise()
             .then(function (data) {
@@ -1732,7 +1733,7 @@ var SuperCiudadesAgregarComponent = /** @class */ (function () {
                 // this.zonas(this.productList);
             }, 2000);
             setTimeout(function () {
-                _this.geolocalizar();
+                //this.geolocalizar();
             }, 5000);
         }, function (msg) {
             console.log(msg);
@@ -1754,8 +1755,8 @@ var SuperCiudadesAgregarComponent = /** @class */ (function () {
     };
     SuperCiudadesAgregarComponent.prototype.zonas = function (obj) {
         var ultimoPunto = {
-            lat: 0,
-            lng: 0
+            lat: -34.4626456,
+            lng: -57.8409687
         };
         if (localStorage.getItem("mouvers_pais") == '1') {
             console.log('uru');
@@ -1772,10 +1773,11 @@ var SuperCiudadesAgregarComponent = /** @class */ (function () {
             };
         }
         var mapEle = document.getElementById('map');
+        console.log(ultimoPunto);
         this.myLatLng = ultimoPunto;
         this.map = new google.maps.Map(mapEle, {
             center: this.myLatLng,
-            zoom: 10,
+            zoom: 14,
             mapTypeControl: true,
             fullscreenControl: true,
             streetViewControl: true,
@@ -1802,8 +1804,20 @@ var SuperCiudadesAgregarComponent = /** @class */ (function () {
     };
     SuperCiudadesAgregarComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
+        var center = { lat: -34.4626456, lng: -57.8409687, };
+        // Create a bounding box with sides ~10km away from the center point
+        var defaultBounds = {
+            north: center.lat + 1.9,
+            south: center.lat - 1.9,
+            east: center.lng + 1.9,
+            west: center.lng - 1.9,
+        };
         var options = {
-            types: ['address'],
+            bounds: defaultBounds,
+            componentRestrictions: { country: "uy" },
+            fields: ["address_components", "geometry", "icon", "name"],
+            strictBounds: true,
+            types: ["geocode"],
         };
         if (document.getElementById('places')) {
             var inputElement = document.getElementById('places') /*.getElementsByTagName('input')[0]*/;
@@ -1824,8 +1838,9 @@ var SuperCiudadesAgregarComponent = /** @class */ (function () {
                 };
                 setTimeout(function () {
                     //this.createMarker(this.myLatLng);
+                    _this.createMarker(place.geometry.location);
                     _this.map.setCenter(place.geometry.location);
-                    _this.map.setZoom(14);
+                    _this.map.setZoom(12);
                 }, 100);
             });
         }
@@ -1932,12 +1947,13 @@ var SuperCiudadesAgregarComponent = /** @class */ (function () {
         this.myLatLng = position;
         this.map = new google.maps.Map(mapEle, {
             center: this.myLatLng,
-            zoom: 19,
+            zoom: 12,
             mapTypeControl: true,
             fullscreenControl: true,
             streetViewControl: true,
             zoomControl: true
         });
+        this.createMarker(this.myLatLng);
         //Reiniciar el area
         this.areaTriangle = [];
         for (var i = 0; i < this.triangleCoords.length; ++i) {
@@ -1985,7 +2001,7 @@ var SuperCiudadesAgregarComponent = /** @class */ (function () {
         this.myLatLng = position;
         this.map = new google.maps.Map(mapEle, {
             center: this.myLatLng,
-            zoom: 19,
+            zoom: 12,
             mapTypeControl: true,
             fullscreenControl: true,
             streetViewControl: true,

@@ -314,7 +314,7 @@ var notificacionesComponent = /** @class */ (function () {
     notificacionesComponent.prototype.enviarNotificaciones = function () {
         var _this = this;
         this.loading = true;
-        this.http.get(this.rutaService.getRutaApi() + 'gclientes.php?accion=17&ciudad_id=1&titulo=Service24' + /*localStorage.getItem('mouvers_ciudad')+*/ '&contenido=' + this.msg)
+        this.http.get(this.rutaService.getRutaApi() + 'gclientes.php?accion=17&pedido_id=17&obj=17&ciudad_id=1&titulo=Service24' + /*localStorage.getItem('mouvers_ciudad')+*/ '&contenido=' + this.msg)
             .toPromise()
             .then(function (data) {
             console.log(data);
@@ -341,7 +341,7 @@ var notificacionesComponent = /** @class */ (function () {
     notificacionesComponent.prototype.enviarNotificacionesP = function () {
         var _this = this;
         this.loading = true;
-        this.http.get(this.rutaService.getRutaApi() + 'gproveedores.php?accion=17&ciudad_id=1&titulo=Service24' + /*localStorage.getItem('mouvers_ciudad')+*/ '&contenido=' + this.msgp)
+        this.http.get(this.rutaService.getRutaApi() + 'gproveedores.php?accion=17&pedido_id=17&obj=17&ciudad_id=1&titulo=Service24' + /*localStorage.getItem('mouvers_ciudad')+*/ '&contenido=' + this.msgp)
             .toPromise()
             .then(function (data) {
             console.log(data);

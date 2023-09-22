@@ -135,7 +135,7 @@ export class SuperCiudadesAgregarComponent implements OnInit, AfterViewInit{
 
           this.router.navigateByUrl('/pagessimples/loginf');
       }
-
+      this.zonas(1);
     this.loading = true;
 
     this.http.get(this.rutaService.getRutaApi()+'ciudad?pais_id='+localStorage.getItem('mouvers_pais')+'token='+localStorage.getItem('mouvers_token'))
@@ -172,7 +172,7 @@ export class SuperCiudadesAgregarComponent implements OnInit, AfterViewInit{
          }
        );
 
-       this.geolocalizar();
+       //this.geolocalizar();
   
 
        
@@ -195,9 +195,10 @@ export class SuperCiudadesAgregarComponent implements OnInit, AfterViewInit{
 
            setTimeout(()=>{
                 // this.zonas(this.productList);
+                
                 },2000);
             setTimeout(()=>{
-                this.geolocalizar();
+                //this.geolocalizar();
                 },5000);
          },
          msg => { // Error
@@ -234,8 +235,8 @@ export class SuperCiudadesAgregarComponent implements OnInit, AfterViewInit{
   public triangleCoords2:any=[];
   zonas(obj){
       let ultimoPunto={
-          lat: 0,
-          lng: 0
+        lat: -34.4626456,
+        lng: -57.8409687
         };
       if (localStorage.getItem("mouvers_pais")=='1') {
         console.log('uru');
@@ -253,11 +254,12 @@ export class SuperCiudadesAgregarComponent implements OnInit, AfterViewInit{
 
       
       let mapEle: HTMLElement = document.getElementById('map');
+        console.log(ultimoPunto)
         this.myLatLng = ultimoPunto;
 
         this.map = new google.maps.Map(mapEle, {
           center: this.myLatLng,
-          zoom: 10,
+          zoom: 14,
           mapTypeControl: true,
           fullscreenControl: true,
           streetViewControl:true,
@@ -293,10 +295,22 @@ export class SuperCiudadesAgregarComponent implements OnInit, AfterViewInit{
 
 
   ngAfterViewInit(): void {
-    const options = {
-      types: ['address'],
-      //componentRestrictions: { country: "uy" }
-    };
+    const center = {  lat: -34.4626456,lng: -57.8409687, };
+		// Create a bounding box with sides ~10km away from the center point
+		const defaultBounds = {
+			north: center.lat + 1.9,
+			south: center.lat - 1.9,
+			east: center.lng + 1.9,
+			west: center.lng - 1.9,
+		};
+		const options = {
+			bounds: defaultBounds,
+			componentRestrictions: { country: "uy" },
+			fields: ["address_components", "geometry", "icon", "name"],
+			strictBounds: true,
+			types: ["geocode"],
+		};
+    
     if (document.getElementById('places')) {
       const inputElement = document.getElementById('places')/*.getElementsByTagName('input')[0]*/;
       let autocomplete = new google.maps.places.Autocomplete(inputElement, options);
@@ -314,7 +328,7 @@ export class SuperCiudadesAgregarComponent implements OnInit, AfterViewInit{
         //let coordAux = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());  
         //this.createMarker(coordAux);
         //this.direccion = place.formatted_address;
-
+        
         this.myLatLng = {
           lat: place.geometry.location.lat(),
           lng: place.geometry.location.lng()
@@ -323,9 +337,9 @@ export class SuperCiudadesAgregarComponent implements OnInit, AfterViewInit{
         setTimeout(()=>{
 
           //this.createMarker(this.myLatLng);
-
+          this.createMarker(place.geometry.location);
           this.map.setCenter(place.geometry.location);
-          this.map.setZoom(14);
+          this.map.setZoom(12);
 
           },100);
 
@@ -458,13 +472,13 @@ export class SuperCiudadesAgregarComponent implements OnInit, AfterViewInit{
 
     this.map = new google.maps.Map(mapEle, {
       center: this.myLatLng,
-      zoom: 19,
+      zoom: 12,
       mapTypeControl: true,
         fullscreenControl: true,
         streetViewControl:true,
         zoomControl: true
     });
-
+    this.createMarker(this.myLatLng);
     //Reiniciar el area
     this.areaTriangle = [];
     for (var i = 0; i < this.triangleCoords.length; ++i) {
@@ -522,12 +536,13 @@ export class SuperCiudadesAgregarComponent implements OnInit, AfterViewInit{
 
     this.map = new google.maps.Map(mapEle, {
       center: this.myLatLng,
-      zoom: 19,
+      zoom: 12,
       mapTypeControl: true,
         fullscreenControl: true,
         streetViewControl:true,
         zoomControl: true
     });
+    
 
     //Reiniciar el area
     this.areaTriangle = [];

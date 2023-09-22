@@ -1152,7 +1152,7 @@ var FooterComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'ngx-footer',
             styles: [__webpack_require__("../../../../../src/app/@theme/components/footer/footer.component.scss")],
-            template: "\n    <span class=\"created-by\">Created  by <b><a>Service24 Internacional</a></b> </span> <span class=\"created-by\">Versi\u00F3n 1.9</span>\n    \n  ",
+            template: "\n    <span class=\"created-by\">Created  by <b><a>Service24 Internacional</a></b> </span> <span class=\"created-by\">Versi\u00F3n 0.0.1</span>\n    \n  ",
         })
     ], FooterComponent);
     return FooterComponent;

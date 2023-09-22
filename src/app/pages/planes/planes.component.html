@@ -42,6 +42,12 @@
                   <input class="form-control" [(ngModel)]="plan.costo" style="width: 100%"><br>
                   <strong>Precio de promoción: </strong><br>
                   <input class="form-control" [(ngModel)]="plan.descuento" style="width: 100%"><br>
+                  <strong>Tipo de proveedor: </strong><br>
+                    <select class="form-control" [(ngModel)]="plan.tipo" style="width: 100%">
+                      <option value="servicios">Servicios</option>
+                      <option value="comercios">Comercios</option>
+                    </select>
+
                   <strong>Recomendado: </strong>
                   <nb-checkbox [value]="plan.recomendado === 1"  (change)="cambiarEstado2(plan.recomendado)"></nb-checkbox>
                   <br><hr><br>

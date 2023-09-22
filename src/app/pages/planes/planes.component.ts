@@ -374,6 +374,7 @@ export class planesComponent implements OnInit{
 		  costo:this.plan.costo,
 		  descuento:this.plan.descuento,
 		  recomendado:this.plan.recomendado,
+		  tipo:this.plan.tipo,
           descripcion:JSON.stringify(this.plan.descripcion)
         }
         console.log(datos);
