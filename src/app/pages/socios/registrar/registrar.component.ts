@@ -440,7 +440,7 @@ export class registrarComponent implements OnInit{
       this.myFormEditar.patchValue({idoneidad : this.objAEditar.usuario.registro.idoneidad});
       this.myFormEditar.patchValue({record_policivo : this.objAEditar.usuario.registro.record_policivo});
       this.myFormEditar.patchValue({disponibilidad : this.objAEditar.usuario.registro.disponibilidad});
-      this.myFormEditar.patchValue({disponibilidad2 : JSON.parse(this.objAEditar.usuario.registro.disponibilidad)});
+      this.myFormEditar.patchValue({disponibilidad2 : this.objAEditar.usuario.registro.disponibilidad});
       this.myFormEditar.patchValue({idiomas : this.objAEditar.usuario.registro.idiomas});
       this.myFormEditar.patchValue({idiomas2 : JSON.parse(this.objAEditar.usuario.registro.idiomas)});
       this.myFormEditar.patchValue({urgencias : this.objAEditar.usuario.registro.urgencias});
@@ -470,7 +470,7 @@ export class registrarComponent implements OnInit{
       //this.myFormEditar.patchValue({contrato : this.objAEditar.usuario.registro.contrato});
       this.myFormEditar.patchValue({lat : this.objAEditar.usuario.registro.latitud});
       this.myFormEditar.patchValue({lng : this.objAEditar.usuario.registro.longitud});
-      var disp=  JSON.parse(this.objAEditar.usuario.registro.disponibilidad);
+      var disp=  this.objAEditar.usuario.registro.disponibilidad;
       this.myFormEditar.patchValue({lunes_i : disp.lunes_i});
       this.myFormEditar.patchValue({lunes_f : disp.lunes_f});
       this.myFormEditar.patchValue({martes_i : disp.martes_i});
