@@ -668,7 +668,8 @@ export class registrarComponent implements OnInit{
         activar:1,
         msg:'¡Felicidades! has sido aprobado como proveedor. Ingresa y explora las nuevas opciones.'
       }
-
+      console.log(this.token_notificacion,this.myFormEditar.value)
+      
       this.http.put(this.rutaService.getRutaApi()+'repartidores/'+this.myFormEditar.value.id, datosa)
          .toPromise()
          .then(
@@ -683,7 +684,7 @@ export class registrarComponent implements OnInit{
               this.editando = false;
               this.showToast('success', 'Success!', '!Proveedor aceptado con éxito!'); 
               this.loading = true;
-              this.enviar_proveedores();
+              //this.enviar_proveedores();
               this.http.get(this.rutaService.getRutaApi()+'registro?token='+localStorage.getItem('mouvers_token')+'&ciudad_id='+localStorage.getItem('mouvers_ciudad'))
                  .toPromise()
                  .then(
@@ -729,7 +730,7 @@ export class registrarComponent implements OnInit{
                  );
           
 
-              this.http.get(this.rutaService.getRutaApi()+'onesignal.php?accion=17&token_notificacion='+this.token_notificacion+'&contenido='+this.contenido)
+              this.http.get(this.rutaService.getRutaApi()+'oproveedor.php?accion=17&token_notificacion='+this.token_notificacion+'&contenido='+this.contenido)
                .toPromise()
                .then(
                  data => { // Success
@@ -938,7 +939,7 @@ export class registrarComponent implements OnInit{
            }
          );
 
-
+           
 
     }
 
@@ -1134,7 +1135,7 @@ export class registrarComponent implements OnInit{
               this.showToast('success', 'Success!', this.data.message);
               obj.estado = v_estado;
 
-              this.http.get(this.rutaService.getRutaApi()+'onesignal.php?accion=17&token_notificacion='+this.token_notificacion+'&contenido='+mensaje_producto)
+              this.http.get(this.rutaService.getRutaApi()+'oproveedor.php?accion=17&token_notificacion='+this.token_notificacion+'&contenido='+mensaje_producto)
                .toPromise()
                .then(
                  data => { // Success

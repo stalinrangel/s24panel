@@ -2726,6 +2726,7 @@ var ProductosVerComponent = /** @class */ (function () {
     //Para el producto
     ProductosVerComponent.prototype.cambiarEstado = function (obj) {
         var _this = this;
+        console.log(obj);
         var v_estado;
         if (obj.estado == 'ON') {
             //obj.estado = 'OFF';

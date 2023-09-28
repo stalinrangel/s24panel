@@ -577,7 +577,7 @@ export class ProductosVerComponent implements OnInit{
 
     //Para el producto
     cambiarEstado(obj): void {
-
+      console.log(obj)
       var v_estado: any;
 
       if (obj.estado == 'ON') {

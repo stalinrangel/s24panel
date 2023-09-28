@@ -3516,6 +3516,7 @@ var registrarComponent = /** @class */ (function () {
             activar: 1,
             msg: '¡Felicidades! has sido aprobado como proveedor. Ingresa y explora las nuevas opciones.'
         };
+        console.log(this.token_notificacion, this.myFormEditar.value);
         this.http.put(this.rutaService.getRutaApi() + 'repartidores/' + this.myFormEditar.value.id, datosa)
             .toPromise()
             .then(function (data) {
@@ -3527,7 +3528,7 @@ var registrarComponent = /** @class */ (function () {
             _this.editando = false;
             _this.showToast('success', 'Success!', '!Proveedor aceptado con éxito!');
             _this.loading = true;
-            _this.enviar_proveedores();
+            //this.enviar_proveedores();
             _this.http.get(_this.rutaService.getRutaApi() + 'registro?token=' + localStorage.getItem('mouvers_token') + '&ciudad_id=' + localStorage.getItem('mouvers_ciudad'))
                 .toPromise()
                 .then(function (data) {
@@ -3557,7 +3558,7 @@ var registrarComponent = /** @class */ (function () {
                     _this.showToast('info', 'Info!', msg.error.error);
                 }
             });
-            _this.http.get(_this.rutaService.getRutaApi() + 'onesignal.php?accion=17&token_notificacion=' + _this.token_notificacion + '&contenido=' + _this.contenido)
+            _this.http.get(_this.rutaService.getRutaApi() + 'oproveedor.php?accion=17&token_notificacion=' + _this.token_notificacion + '&contenido=' + _this.contenido)
                 .toPromise()
                 .then(function (data) {
                 console.log(data);
@@ -3883,7 +3884,7 @@ var registrarComponent = /** @class */ (function () {
             _this.data = data;
             _this.showToast('success', 'Success!', _this.data.message);
             obj.estado = v_estado;
-            _this.http.get(_this.rutaService.getRutaApi() + 'onesignal.php?accion=17&token_notificacion=' + _this.token_notificacion + '&contenido=' + mensaje_producto)
+            _this.http.get(_this.rutaService.getRutaApi() + 'oproveedor.php?accion=17&token_notificacion=' + _this.token_notificacion + '&contenido=' + mensaje_producto)
                 .toPromise()
                 .then(function (data) {
                 console.log(data);
