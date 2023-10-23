@@ -77,6 +77,9 @@ const routes: Routes = [{
     path: 'contacto',
     loadChildren: './contacto/contacto.module#contactoModule',
   },{
+    path: 'publicidad',
+    loadChildren: './publicidad/publicidad.module#publicidadModule',
+  },{
     path: 'cobros',
     loadChildren: './cobros/cobros.module#cobrosModule',
   },{

@@ -5,6 +5,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { MiDashboardModule } from './mi-dashboard/mi-dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
+import { PublicidadComponent } from './publicidad/publicidad.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -18,7 +19,8 @@ const PAGES_COMPONENTS = [
     MiDashboardModule,
   ],
   declarations: [
-    ...PAGES_COMPONENTS
+    ...PAGES_COMPONENTS,
+    PublicidadComponent
   ],
 })
 export class PagesModule {

@@ -174,6 +174,10 @@ export const MENU_ITEMS0: NbMenuItem[] = [
         title: 'Contacto',
         link: '/pages/contacto',
       },
+      {
+        title: 'Publicidad',
+        link: '/pages/publicidad',
+      },
     ],
   },
   {
