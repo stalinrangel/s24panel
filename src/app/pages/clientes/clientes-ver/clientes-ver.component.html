@@ -33,6 +33,7 @@
          <th style="text-align: center;">Puntaje</th>
          <th style="text-align: center;">Estado</th>
          <th style="text-align: center;">Acciones</th>
+         <th style="text-align: center;">Proveedor</th>
       </thead>
       <tbody>
          <tr *ngFor="let item of items" >
@@ -89,6 +90,9 @@
               <button type="button" class="btn btn-primary btn-icon btn-sm btn-table" title="Chat" (click)="chat(item)">
                 <i class="nb-email"></i>
               </button>
+            </td>
+            <td>
+              <nb-checkbox   (change)="cambiarProveedor(item)" ></nb-checkbox>
             </td>
          </tr>
       </tbody>

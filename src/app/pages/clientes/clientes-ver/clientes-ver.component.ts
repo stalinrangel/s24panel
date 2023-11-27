@@ -301,6 +301,38 @@ export class ClientesVerComponent implements OnInit{
          );
     }
 
+    cambiarProveedor(obj): void {
+      console.log(obj)
+      this.http.post(this.rutaService.getRutaApi()+'change', obj)
+         .toPromise()
+         .then(
+           data => { // Success
+              console.log(data);
+              this.data = data;
+              this.showToast('success', 'Success!', this.data.message);
+              this.ngOnInit();
+             
+              
+           },
+           msg => { // Error
+             console.log(msg);
+             console.log(msg.error.error);
+
+             //token invalido/ausente o token expiro
+             if(msg.status == 400 || msg.status == 401){ 
+                  //alert(msg.error.error);
+                  //ir a login
+
+                  this.showToast('warning', 'Warning!', msg.error.error);
+              }
+              else { 
+                  //alert(msg.error.error);
+                  this.showToast('error', 'Erro!', msg.error.error);
+              }
+           }
+         );
+    }
+
     //Para el cliente
     cambiarStatus(obj): void {
 

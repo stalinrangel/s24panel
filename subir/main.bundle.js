@@ -103,6 +103,10 @@ var map = {
 		"../../../../../src/app/pages/productos/productos.module.ts",
 		"productos.module"
 	],
+	"./publicidad/publicidad.module": [
+		"../../../../../src/app/pages/publicidad/publicidad.module.ts",
+		"publicidad.module"
+	],
 	"./sistema/sistema.module": [
 		"../../../../../src/app/pages/sistema/sistema.module.ts",
 		"sistema.module"

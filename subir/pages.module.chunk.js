@@ -6315,6 +6315,10 @@ var MENU_ITEMS0 = [
                 title: 'Contacto',
                 link: '/pages/contacto',
             },
+            {
+                title: 'Publicidad',
+                link: '/pages/publicidad',
+            },
         ],
     },
     {
@@ -7216,6 +7220,9 @@ var routes = [{
                 path: 'contacto',
                 loadChildren: './contacto/contacto.module#contactoModule',
             }, {
+                path: 'publicidad',
+                loadChildren: './publicidad/publicidad.module#PublicidadModule',
+            }, {
                 path: 'cobros',
                 loadChildren: './cobros/cobros.module#cobrosModule',
             }, {
@@ -7344,6 +7351,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+//import { PublicidadComponent } from './publicidad/publicidad.component';
 var PAGES_COMPONENTS = [
     __WEBPACK_IMPORTED_MODULE_1__pages_component__["a" /* PagesComponent */],
 ];
